@@ -4508,6 +4508,90 @@ textarea.form-control-lg {
   border-radius: 0;
 }
 
+.accordion-button {
+  color: #fff;
+}
+
+.accordion-body {
+  color: #fff;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 200px; /* adjust based on content */
+}
+
+
+/* Accordion container spacing */
+.accordion {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+/* Glass card style */
+.accordion-item {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+
+  /* Smooth transitions */
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border 0.25s ease,
+    background 0.25s ease;
+}
+
+/* Subtle hover effect */
+.accordion-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Remove default Bootstrap background */
+.accordion-button {
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  box-shadow: none;
+}
+
+/* Remove blue click effect */
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+/* When open */
+.accordion-button:not(.collapsed) {
+  background: transparent;
+  color: #fff;
+}
+
+/* Arrow icon color fix */
+.accordion-button::after {
+  filter: invert(1);
+}
+
+/* Body (answer) */
+.accordion-body {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 .breadcrumb {
   --bs-breadcrumb-padding-x: 0;
   --bs-breadcrumb-padding-y: 0;
@@ -10907,6 +10991,43 @@ section.page-section {
   padding: 3rem;
 }
 
+/* #team-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.team-member {
+  text-align: center;
+} */
+
+/* #team-section .row {
+  justify-content: center;
+}
+
+.team-member {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-member img {
+  margin: 0 auto;
+  display: block;
+}
+#team-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.team-member {
+  text-align: center;
+} */
+
 #firstImage {
   width: 85%;
   max-width: 500px;
@@ -11646,4 +11767,217 @@ section#contact form#contactForm :-ms-input-placeholder {
 /* subtle overlay on hover */
 .masonry img:hover {
   filter: brightness(0.9);
+}
+
+
+
+/* .modal {
+  z-index: 1055;
+}
+
+.modal-dialog {
+  max-width: 900px;
+}
+
+.modal-content {
+  overflow: visible !important;
+}
+
+.modal-body {
+  display: block !important;
+  overflow: visible !important;
+}
+
+.event-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+  min-height: 200px;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.event-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.event-item img:hover {
+  transform: scale(1.04);
+}
+
+@media (max-width: 576px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+} */
+
+
+/* =========================
+   MAIN LAYOUT (50/50 SPLIT)
+========================= */
+.event-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.event-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.event-text {
+  flex: 1;
+}
+
+/* =========================
+   IMAGE CONTAINER (FIXED)
+========================= */
+.event-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+
+  aspect-ratio: 1 / 1; /* 🔥 THIS FIXES EVERYTHING */
+}
+
+/* STACKED IMAGES */
+.event-item img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+
+  transition: opacity 1s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* IMAGE 1 */
+.event-item .img1 {
+  opacity: 1;
+  animation: fade1 6s infinite, zoom 6s infinite;
+}
+
+/* IMAGE 2 */
+.event-item .img2 {
+  animation: fade2 6s infinite, zoom 6s infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fade1 {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes fade2 {
+  0%, 45% { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+
+@keyframes zoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+  .event-layout {
+    flex-direction: column;
+  }
+}
+
+.event-item:nth-child(2) .img1,
+.event-item:nth-child(2) .img2 {
+  animation-delay: 1.2s;
+}
+
+.event-item:nth-child(3) .img1,
+.event-item:nth-child(3) .img2 {
+  animation-delay: 2.8s;
+}
+
+.event-item:nth-child(4) .img1,
+.event-item:nth-child(4) .img2 {
+  animation-delay: 4.1s;
+}
+
+/* =========================
+   MOBILE OPTIMIZED VERSION
+========================= */
+@media (max-width: 768px) {
+
+  /* STACK LAYOUT */
+  .event-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* GRID FULL WIDTH */
+  .event-grid {
+    width: 100%;
+    gap: 10px;
+  }
+
+  /* Slightly tighter images */
+  .event-item {
+    border-radius: 12px;
+  }
+
+  /* TEXT SECTION */
+  .event-text {
+    width: 100%;
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+
+  .event-text h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .event-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .event-text ul {
+    padding: 0;
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+
+  .event-text li {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  /* OPTIONAL: slow animation slightly on mobile */
+  .event-item .img1,
+  .event-item .img2 {
+    animation-duration: 8s;
+  }
 }
