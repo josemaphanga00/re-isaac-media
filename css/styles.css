@@ -3629,7 +3629,7 @@ textarea.form-control-lg {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
-* NEW NAVBAR SCROLL FEATURE */
+/* * NEW NAVBAR SCROLL FEATURE */ */
 #mainNav.navbar-shrink {
   background-color: rgba(0, 0, 0, 0.4) !important;
   backdrop-filter: blur(12px);
@@ -3640,6 +3640,23 @@ textarea.form-control-lg {
   transition: all 0.5s ease;
   /* background-color: transparent !important; */
 }
+
+#mainNav {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* #mainNav {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+} */
+
+
 
 #mainNav.navbar-shrink {
   border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -3816,6 +3833,7 @@ textarea.form-control-lg {
   color: var(--bs-navbar-brand-color);
   text-decoration: none;
   white-space: nowrap;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2)
 }
 .navbar-brand:hover, .navbar-brand:focus {
   color: var(--bs-navbar-brand-hover-color);
@@ -11028,7 +11046,7 @@ section.page-section {
   text-align: center;
 } */
 
-#firstImage {
+/* #firstImage {
   width: 85%;
   max-width: 500px;
   border-radius: 25px;
@@ -11040,6 +11058,16 @@ section.page-section {
     margin-left: auto;
     margin-right: 6.5%;
   }
+} */
+
+#firstImage {
+  width: 85%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 25px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
 .section-heading {
   font-size: 2.5rem;
@@ -11203,10 +11231,12 @@ header.masthead {
   /* background-image: url("../assets/img/hero_sabelo.jpg"); */
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center 20%;
+  /* background-position: center 20%; */
   background-size: cover;
   min-height: 100vh;
   background-attachment: fixed;
+  background-position: center 20%;
+  object-fit: cover;
 }
 
 header.masthead {
@@ -11251,6 +11281,7 @@ header.masthead {
   z-index: -2;
 }
 
+
 .hero-bg .slide {
   position: absolute;
   width: 100%;
@@ -11259,6 +11290,7 @@ header.masthead {
   background-position: center;
   opacity: 0;
   animation: slideShow 20s infinite;
+  background-position: center 25%;
 }
 
 /* Delay each image */
@@ -11636,7 +11668,7 @@ header.masthead .btn-primary {
     padding: 0 100px 20px 20px;
   }
 }
-.team-member {
+/* .team-member {
   margin-bottom: 3rem;
   text-align: center;
 }
@@ -11648,6 +11680,49 @@ header.masthead .btn-primary {
 .team-member h4, .team-member .h4 {
   margin-top: 1.5rem;
   margin-bottom: 0;
+} */
+
+
+/* =========================
+   TEAM MEMBER (CENTERED CARD)
+========================= */
+.team-member {
+  margin-bottom: 3rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* IMAGE */
+.team-member img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 6px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+
+  display: block;
+}
+
+/* NAME + ROLE */
+.team-member h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.3rem;
+  color: #fff !important;
+}
+
+.team-member p {
+  margin-bottom: 1rem;
+  color: #fff !important;
+}
+
+/* INSTAGRAM BUTTON */
+.team-member .btn {
+  margin-top: 0.5rem;
 }
 
 .img-brand {
@@ -12460,7 +12535,355 @@ tablet (3 columns) */
 
 }
 
+
+/* =========================
+   CTA SECTION BASE
+========================= */
+.cta-section {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* =========================
+   BUTTON WRAPPER
+========================= */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   BASE BUTTON
+========================= */
+.cta-btn {
+  padding: 18px 34px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* =========================
+   PRIMARY (BOOK)
+========================= */
+.book-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.book-btn:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SECONDARY (INQUIRY)
+========================= */
+.inquiry-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  opacity: 0.85;
+}
+
+.inquiry-btn:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 576px) {
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
+
+
+/* =========================
+   GLASS MODAL BASE
+========================= */
+#bookingModal .modal-content {
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* overlay behind modal */
+#bookingModal.modal {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+/* =========================
+   FORM FIELDS
+========================= */
+#bookingModal input,
+#bookingModal select,
+#bookingModal textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 14px 16px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* focus glow */
+#bookingModal input:focus,
+#bookingModal select:focus,
+#bookingModal textarea:focus {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
+}
+
+/* placeholder color */
+#bookingModal input::placeholder,
+#bookingModal textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+#bookingModal .btn-primary {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+#bookingModal .btn-primary:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+#bookingModal .btn-outline-light {
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+#bookingModal .btn-outline-light:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* =========================
+   ACTION BUTTON LAYOUT
+========================= */
+#bookingModal .form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+#bookingModal .close-modal {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  cursor: pointer;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.4));
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+  #bookingModal .modal-content {
+    border-radius: 14px;
+  }
+
+  #bookingModal .form-actions {
+    flex-direction: column;
+  }
+}
+#bookingModal .modal-content {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================
+   INQUIRY GLASS MODAL BASE
+========================= */
+#inquiryModal .modal-content {
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* dark overlay behind modal */
+#inquiryModal.modal {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+/* =========================
+   INPUTS / SELECT / TEXTAREA
+========================= */
+#inquiryModal input,
+#inquiryModal select,
+#inquiryModal textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 14px 16px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+
+  outline: none;
+  transition: all 0.3s ease;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* focus effect */
+#inquiryModal input:focus,
+#inquiryModal select:focus,
+#inquiryModal textarea:focus {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
+}
+
+/* placeholder */
+#inquiryModal input::placeholder,
+#inquiryModal textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* dropdown options (limited browser styling) */
+#inquiryModal select option {
+  background: #111;
+  color: #fff;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+#inquiryModal .btn-primary {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+#inquiryModal .btn-primary:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+#inquiryModal .btn-outline-light {
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+#inquiryModal .btn-outline-light:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* =========================
+   BUTTON LAYOUT
+========================= */
+#inquiryModal .form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+#inquiryModal .close-modal {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.4));
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+  #inquiryModal .modal-content {
+    border-radius: 14px;
+  }
+
+  #inquiryModal .form-actions {
+    flex-direction: column;
+  }
+}
+#bookingModal .btn,
+#inquiryModal .btn {
+  min-width: 180px;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+
+
+
+
 /* 067 2345 451
 079 475 0578
 
 066 3875 750 */
+
+/* When you come back, we can upgrade it into:
+
+premium booking flow
+auto pricing calculator
+WhatsApp/email automation
+full glass UI polish */
+
+/* send inquiry directly to WhatsApp (🔥 very popular in SA)
+auto-route inquiry type → different responses
+or connect both forms to a single backend system */

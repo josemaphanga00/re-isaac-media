@@ -198,3 +198,54 @@ window.addEventListener('DOMContentLoaded', event => {
   });
 
 });
+
+const serviceType = document.getElementById("serviceType");
+const weddingOptions = document.getElementById("weddingOptions");
+const eventOptions = document.getElementById("eventOptions");
+const eventPackage = document.getElementById("eventPackage");
+const hoursField = document.getElementById("hoursField");
+
+serviceType.addEventListener("change", () => {
+  if (serviceType.value === "wedding") {
+    weddingOptions.style.display = "block";
+    eventOptions.style.display = "none";
+    hoursField.style.display = "none";
+  } else if (serviceType.value === "event") {
+    weddingOptions.style.display = "none";
+    eventOptions.style.display = "block";
+  } else {
+    weddingOptions.style.display = "none";
+    eventOptions.style.display = "none";
+    hoursField.style.display = "none";
+  }
+});
+
+eventPackage.addEventListener("change", () => {
+  if (eventPackage.value === "hourly") {
+    hoursField.style.display = "block";
+  } else {
+    hoursField.style.display = "none";
+  }
+});
+
+const inquiryForm = document.querySelector("#inquiryModal form");
+
+if (inquiryForm) {
+  inquiryForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // simulate submit (replace later with email/API)
+    console.log("Inquiry submitted");
+
+    // reset form
+    inquiryForm.reset();
+
+    // close modal (Bootstrap 5)
+    const modal = bootstrap.Modal.getInstance(document.getElementById("inquiryModal"));
+    modal.hide();
+
+    // optional: alert or toast
+    alert("Thank you! We will get back to you soon.");
+  });
+}
+
