@@ -1077,58 +1077,62 @@
                         <!-- FORM START -->
                         <form class="booking-form" action="https://formspree.io/f/mrejledz" method="POST">
 
-                            <!-- PERSONAL -->
-                            <input type="text" placeholder="Full Name" required>
-                            <input type="email" placeholder="Email Address" required>
-                            <input type="tel" placeholder="Phone / WhatsApp Number" required>       
+                        <!-- PERSONAL -->
+                        <input type="text" name="fullName" placeholder="Full Name" required>
 
-                            <!-- SERVICE -->
-                            <select id="serviceType" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+
+                        <input type="tel" name="phone" placeholder="Phone / WhatsApp Number" required>
+
+                        <!-- SERVICE -->
+                        <select id="serviceType" name="serviceType" required>
                             <option value="">Select Service</option>
                             <option value="wedding">Wedding</option>
                             <option value="event">Event</option>
+                        </select>
+
+                        <!-- WEDDING -->
+                        <div id="weddingOptions" style="display:none;">
+                            <select name="weddingPackage">
+                            <option value="">Select Wedding Package</option>
+                            <option value="starter">Starter</option>
+                            <option value="standard">Standard</option>
+                            <option value="premium">Premium</option>
                             </select>
+                        </div>
 
-                            <!-- WEDDING -->
-                            <div id="weddingOptions" style="display:none;">
-                            <select>
-                                <option value="">Select Wedding Package</option>
-                                <option>Starter</option>
-                                <option>Standard</option>
-                                <option>Premium</option>
+                        <!-- EVENT -->
+                        <div id="eventOptions" style="display:none;">
+                            <select id="eventPackage" name="eventPackage">
+                            <option value="">Select Event Option</option>
+                            <option value="hourly">Hourly (R1500/hour)</option>
+                            <option value="half-day">Half Day (4 Hours - R5,500)</option>
+                            <option value="full-day">Full Day (8 Hours - R11,000)</option>
                             </select>
-                            </div>
+                        </div>
 
-                            <!-- EVENT -->
-                            <div id="eventOptions" style="display:none;">
-                            <select id="eventPackage">
-                                <option value="">Select Event Option</option>
-                                <option value="hourly">Hourly (R1500/hour)</option>
-                                <option>Half Day (4 Hours - R5,500)</option>
-                                <option>Full Day (8 Hours - R11,000)</option>
-                            </select>
-                            </div>
+                        <!-- HOURS -->
+                        <div id="hoursField" style="display:none;">
+                            <input type="number" name="hours" placeholder="Number of Hours">
+                        </div>
 
-                            <!-- HOURS -->
-                            <div id="hoursField" style="display:none;">
-                            <input type="number" placeholder="Number of Hours">
-                            </div>
+                        <!-- DETAILS -->
+                        <input type="date" name="eventDate" required>
 
-                            <!-- DETAILS -->
-                            <input type="date" required>
-                            <input type="text" placeholder="Event Location">
-                            <textarea placeholder="Tell us about your event..."></textarea>
+                        <input type="text" name="location" placeholder="Event Location">
 
-                            <!-- BUTTONS -->
-                            <div class="form-actions">
+                        <textarea name="message" placeholder="Tell us about your event..."></textarea>
+
+                        <!-- BUTTONS -->
+                        <div class="form-actions">
                             <button type="submit" class="btn btn-primary btn-xl text-uppercase">
-                                Submit
+                            Submit
                             </button>
 
                             <button type="button" class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal">
-                                Cancel
+                            Cancel
                             </button>
-                            </div>
+                        </div>
 
                         </form>
                         <!-- FORM END -->
