@@ -11499,7 +11499,59 @@ header.masthead .btn-primary {
   /* spacing (optional but recommended) */
   padding: 1.5rem;
 }
+/* _______________________________________________________________ */
+@media (max-width: 576px) {
 
+  /* force 3 in a row */
+  #portfolio .col-lg-4 {
+    width: 33.3333%;
+    flex: 0 0 33.3333%;
+    padding: 4px;
+  }
+
+  /* remove heavy spacing */
+  #portfolio .mb-4 {
+    margin-bottom: 8px !important;
+  }
+
+  /* make images clean + fit */
+  #portfolio .portfolio-item img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 100%;
+  }
+
+  /* shrink text so it fits */
+  .portfolio-caption-heading {
+    font-size: 0.9rem !important;
+    margin-top: -0.9rem !important;
+  }
+
+  .portfolio-caption-subheading {
+    font-size: 0.45 rem;
+    line-height: 1.2;
+  }
+
+  /* tighten caption spacing */
+  .portfolio-caption {
+    padding: 8px 4px;
+  }
+}
+@media (max-width: 576px) {
+  #portfolio .portfolio-item img {
+    height: 100px;       /* adjust this */
+    width: 100%;
+    object-fit: cover;  /* prevents stretching */
+  }
+}
+@media (max-width: 576px) {
+  #portfolio .portfolio-caption {
+    padding: 6px 4px;   /* reduce space inside */
+    height: 50px;
+  }
+}
+
+/* _______________________________________________________ */
 
 .timeline {
   position: relative;
