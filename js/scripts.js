@@ -231,21 +231,40 @@ eventPackage.addEventListener("change", () => {
 const inquiryForm = document.querySelector("#inquiryModal form");
 
 if (inquiryForm) {
-  inquiryForm.addEventListener("submit", function (e) {
+  inquiryForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    // simulate submit (replace later with email/API)
-    console.log("Inquiry submitted");
+    const formData = new FormData(inquiryForm);
 
-    // reset form
-    inquiryForm.reset();
+    try {
+      const response = await fetch(inquiryForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
 
-    // close modal (Bootstrap 5)
-    const modal = bootstrap.Modal.getInstance(document.getElementById("inquiryModal"));
-    modal.hide();
+      if (response.ok) {
+        console.log("Inquiry submitted");
 
-    // optional: alert or toast
-    alert("Thank you! We will get back to you soon.");
+        // reset form
+        inquiryForm.reset();
+
+        // close modal
+        const modal = bootstrap.Modal.getInstance(
+          document.getElementById("inquiryModal")
+        );
+
+        modal.hide();
+
+        alert("Thank you! We will get back to you soon.");
+      } else {
+        alert("Failed to send inquiry.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong.");
+    }
   });
 }
-
