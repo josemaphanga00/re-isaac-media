@@ -12713,6 +12713,17 @@ tablet (3 columns) */
   transition: all 0.3s ease;
 }
 
+/* DROPDOWN OPEN MENU NEW FEATURE*/
+#bookingModal select option {
+  background: #111;
+  color: #fff;
+}
+
+/* better browser support */
+#bookingModal select {
+  color-scheme: dark;
+}
+
 /* focus glow */
 #bookingModal input:focus,
 #bookingModal select:focus,
