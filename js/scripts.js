@@ -1,271 +1,247 @@
-/*!
-* Start Bootstrap - Agency v7.0.12 (https://startbootstrap.com/theme/agency)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+document.addEventListener("DOMContentLoaded", () => {
 
-window.addEventListener('DOMContentLoaded', event => {
+  /* =========================
+     NAVBAR SHRINK
+  ========================= */
+  const navbarShrink = () => {
+    const navbar = document.querySelector('#mainNav');
+    if (!navbar) return;
 
-    // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink')
-        }
+    if (window.scrollY === 0) {
+      navbar.classList.remove('navbar-shrink');
+    } else {
+      navbar.classList.add('navbar-shrink');
+    }
+  };
 
-    };
+  navbarShrink();
+  document.addEventListener('scroll', navbarShrink);
 
-    // Shrink the navbar 
-    navbarShrink();
 
-    // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
+  /* =========================
+     BOOTSTRAP SCROLLSPY
+  ========================= */
+  const mainNav = document.querySelector('#mainNav');
 
-    //  Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            rootMargin: '0px 0px -40%',
-        });
-    };
-
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
+  if (mainNav && typeof bootstrap !== 'undefined') {
+    new bootstrap.ScrollSpy(document.body, {
+      target: '#mainNav',
+      rootMargin: '0px 0px -40%',
     });
+  }
 
 
+  /* =========================
+     RESPONSIVE NAV COLLAPSE
+  ========================= */
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navLinks = document.querySelectorAll('#navbarResponsive .nav-link');
 
-    const headers = document.querySelectorAll(".accordion-header");
-
-    headers.forEach(header => {
-    header.addEventListener("click", () => {
-
-        const currentItem = header.parentElement;
-        const content = header.nextElementSibling;
-
-        // Close all other items
-        document.querySelectorAll(".accordion-item").forEach(item => {
-        if (item !== currentItem) {
-            item.classList.remove("active");
-            item.querySelector(".accordion-content").style.maxHeight = null;
+  if (navbarToggler) {
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.getComputedStyle(navbarToggler).display !== 'none') {
+          navbarToggler.click();
         }
-        });
-
-        // Toggle current item
-        currentItem.classList.toggle("active");
-
-        if (currentItem.classList.contains("active")) {
-        content.style.maxHeight = content.scrollHeight + "px";
-        } else {
-        content.style.maxHeight = null;
-        }
-
-    });
-    });
-
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-
-//   const images = document.querySelectorAll(".gallery-item");
-//   const lightbox = document.getElementById("lightbox");
-//   const lightboxImg = document.getElementById("lightboxImg");
-
-//   const closeBtn = document.getElementById("lightboxClose");
-//   const nextBtn = document.getElementById("nextBtn");
-//   const prevBtn = document.getElementById("prevBtn");
-
-//   if (!lightbox || !lightboxImg || !nextBtn || !prevBtn || !closeBtn) {
-//     console.error("❌ Lightbox elements missing");
-//     return;
-//   }
-
-//   let currentIndex = 0;
-
-//   function showImage() {
-//     lightboxImg.src = images[currentIndex].src;
-//   }
-
-//   images.forEach((img, index) => {
-//     img.addEventListener("click", () => {
-//       currentIndex = index;
-//       showImage();
-//       lightbox.style.display = "flex";
-//     });
-//   });
-
-//   nextBtn.addEventListener("click", () => {
-//     currentIndex = (currentIndex + 1) % images.length;
-//     showImage();
-//   });
-
-//   prevBtn.addEventListener("click", () => {
-//     currentIndex = (currentIndex - 1 + images.length) % images.length;
-//     showImage();
-//   });
-
-//   closeBtn.addEventListener("click", () => {
-//     lightbox.style.display = "none";
-//   });
-
-//   lightbox.addEventListener("click", (e) => {
-//     if (e.target === lightbox) {
-//       lightbox.style.display = "none";
-//     }
-//   });
-
-// });
-
-
-  const images = document.querySelectorAll(".gallery-item");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-  const closeBtn = document.getElementById("lightboxClose");
-  const nextBtn = document.getElementById("nextBtn");
-  const prevBtn = document.getElementById("prevBtn");
-
-  let currentIndex = 0;
-  let imageArray = Array.from(images);
-
-  // OPEN LIGHTBOX
-  images.forEach((img, index) => {
-      img.addEventListener("click", () => {
-          currentIndex = index;
-          openLightbox(img.src);
       });
-  });
-
-  function openLightbox(src) {
-      lightboxImg.src = src;
-      lightbox.classList.add("active");
+    });
   }
 
-  // CLOSE LIGHTBOX
-  function closeLightbox() {
-      lightbox.classList.remove("active");
-  }
 
-  closeBtn.addEventListener("click", closeLightbox);
+  /* =========================
+     ACCORDION
+  ========================= */
+  const headers = document.querySelectorAll('.accordion-header');
 
-  // click outside image closes
-  lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-          closeLightbox();
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const content = header.nextElementSibling;
+
+      document.querySelectorAll('.accordion-item').forEach(other => {
+        if (other !== item) {
+          other.classList.remove('active');
+          const c = other.querySelector('.accordion-content');
+          if (c) c.style.maxHeight = null;
+        }
+      });
+
+      item.classList.toggle('active');
+
+      if (item.classList.contains('active')) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = null;
       }
+    });
   });
 
-  // NEXT IMAGE
-  function showNext() {
+
+  /* =========================
+     GALLERY LIGHTBOX
+  ========================= */
+  const images = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+
+  if (images.length && lightbox && lightboxImg) {
+
+    let currentIndex = 0;
+    const imageArray = Array.from(images);
+
+    const openLightbox = (src, index) => {
+      currentIndex = index;
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+    };
+
+    const showNext = () => {
       currentIndex = (currentIndex + 1) % imageArray.length;
       lightboxImg.src = imageArray[currentIndex].src;
-  }
+    };
 
-  // PREVIOUS IMAGE
-  function showPrev() {
-      currentIndex =
-          (currentIndex - 1 + imageArray.length) % imageArray.length;
+    const showPrev = () => {
+      currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
       lightboxImg.src = imageArray[currentIndex].src;
+    };
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => openLightbox(img.src, index));
+    });
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    nextBtn?.addEventListener('click', showNext);
+    prevBtn?.addEventListener('click', showPrev);
+
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
   }
 
-  nextBtn.addEventListener("click", showNext);
-  prevBtn.addEventListener("click", showPrev);
 
-  // keyboard support (optional but nice)
-  document.addEventListener("keydown", (e) => {
-      if (!lightbox.classList.contains("active")) return;
+  /* =========================
+     SERVICE FORM DYNAMIC UI
+  ========================= */
+  const serviceType = document.getElementById('serviceType');
+  const weddingOptions = document.getElementById('weddingOptions');
+  const eventOptions = document.getElementById('eventOptions');
+  const eventPackage = document.getElementById('eventPackage');
+  const hoursField = document.getElementById('hoursField');
 
-      if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") showNext();
-      if (e.key === "ArrowLeft") showPrev();
-  });
+  const hideAll = () => {
+    weddingOptions?.style && (weddingOptions.style.display = 'none');
+    eventOptions?.style && (eventOptions.style.display = 'none');
+    hoursField?.style && (hoursField.style.display = 'none');
+  };
 
-});
+  if (serviceType) {
+    serviceType.addEventListener('change', () => {
+      hideAll();
 
-const serviceType = document.getElementById("serviceType");
-const weddingOptions = document.getElementById("weddingOptions");
-const eventOptions = document.getElementById("eventOptions");
-const eventPackage = document.getElementById("eventPackage");
-const hoursField = document.getElementById("hoursField");
-
-serviceType.addEventListener("change", () => {
-  if (serviceType.value === "wedding") {
-    weddingOptions.style.display = "block";
-    eventOptions.style.display = "none";
-    hoursField.style.display = "none";
-  } else if (serviceType.value === "event") {
-    weddingOptions.style.display = "none";
-    eventOptions.style.display = "block";
-  } else {
-    weddingOptions.style.display = "none";
-    eventOptions.style.display = "none";
-    hoursField.style.display = "none";
-  }
-});
-
-eventPackage.addEventListener("change", () => {
-  if (eventPackage.value === "hourly") {
-    hoursField.style.display = "block";
-  } else {
-    hoursField.style.display = "none";
-  }
-});
-
-const inquiryForm = document.querySelector("#inquiryModal form");
-
-if (inquiryForm) {
-  inquiryForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(inquiryForm);
-
-    try {
-      const response = await fetch(inquiryForm.action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (response.ok) {
-        console.log("Inquiry submitted");
-
-        // reset form
-        inquiryForm.reset();
-
-        // close modal
-        const modal = bootstrap.Modal.getInstance(
-          document.getElementById("inquiryModal")
-        );
-
-        modal.hide();
-
-        alert("Thank you! We will get back to you soon.");
-      } else {
-        alert("Failed to send inquiry.");
+      if (serviceType.value === 'wedding') {
+        weddingOptions.style.display = 'block';
+      } else if (serviceType.value === 'event') {
+        eventOptions.style.display = 'block';
       }
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong.");
-    }
-  });
-}
+    });
+  }
 
+  if (eventPackage) {
+    eventPackage.addEventListener('change', () => {
+      if (eventPackage.value === 'hourly') {
+        hoursField.style.display = 'block';
+      } else {
+        hoursField.style.display = 'none';
+      }
+    });
+  }
+
+
+  /* =========================
+     INQUIRY FORM (MODAL)
+  ========================= */
+  const inquiryForm = document.querySelector('#inquiryModal form');
+
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(inquiryForm);
+
+      try {
+        const response = await fetch(inquiryForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' }
+        });
+
+        if (response.ok) {
+          inquiryForm.reset();
+
+          const modalEl = document.getElementById('inquiryModal');
+          const modal = bootstrap?.Modal?.getInstance(modalEl);
+          modal?.hide();
+
+          alert('Thank you! We will get back to you soon.');
+        } else {
+          alert('Failed to send inquiry.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Something went wrong.');
+      }
+    });
+  }
+
+
+  /* =========================
+     BOOKING FORM (FORMSPREE)
+  ========================= */
+    document.addEventListener("DOMContentLoaded", () => {
+    const bookingForm = document.querySelector(".booking-form");
+
+    if (!bookingForm) {
+      console.warn("Booking form not found");
+      return;
+    }
+
+    bookingForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      console.log("Submit intercepted");
+
+      try {
+        const response = await fetch("https://formspree.io/f/xrejlqyl", {
+          method: "POST",
+          body: new FormData(bookingForm),
+          headers: { Accept: "application/json" }
+        });
+
+        if (response.ok) {
+          alert("Booking submitted successfully!");
+          bookingForm.reset();
+        } else {
+          alert("Something went wrong.");
+        }
+      } catch (err) {
+        alert("Network error.");
+      }
+    });
+  });
+
+});
+  
