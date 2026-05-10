@@ -7,11 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const navbar = document.querySelector('#mainNav');
     if (!navbar) return;
 
-    if (window.scrollY === 0) {
-      navbar.classList.remove('navbar-shrink');
-    } else {
-      navbar.classList.add('navbar-shrink');
-    }
+    navbar.classList.toggle('navbar-shrink', window.scrollY !== 0);
   };
 
   navbarShrink();
@@ -23,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================= */
   const mainNav = document.querySelector('#mainNav');
 
-  if (mainNav && typeof bootstrap !== 'undefined') {
+  if (mainNav && window.bootstrap) {
     new bootstrap.ScrollSpy(document.body, {
       target: '#mainNav',
       rootMargin: '0px 0px -40%',
@@ -32,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     RESPONSIVE NAV COLLAPSE
+     RESPONSIVE NAV
   ========================= */
   const navbarToggler = document.querySelector('.navbar-toggler');
   const navLinks = document.querySelectorAll('#navbarResponsive .nav-link');
@@ -68,17 +64,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       item.classList.toggle('active');
 
-      if (item.classList.contains('active')) {
-        content.style.maxHeight = content.scrollHeight + 'px';
-      } else {
-        content.style.maxHeight = null;
+      if (content) {
+        content.style.maxHeight = item.classList.contains('active')
+          ? content.scrollHeight + 'px'
+          : null;
       }
     });
   });
 
 
   /* =========================
-     GALLERY LIGHTBOX
+     LIGHTBOX
   ========================= */
   const images = document.querySelectorAll('.gallery-item');
   const lightbox = document.getElementById('lightbox');
@@ -92,50 +88,38 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
     const imageArray = Array.from(images);
 
-    const openLightbox = (src, index) => {
-      currentIndex = index;
+    const open = (src, i) => {
+      currentIndex = i;
       lightboxImg.src = src;
       lightbox.classList.add('active');
     };
 
-    const closeLightbox = () => {
-      lightbox.classList.remove('active');
-    };
+    const close = () => lightbox.classList.remove('active');
 
-    const showNext = () => {
+    const next = () => {
       currentIndex = (currentIndex + 1) % imageArray.length;
       lightboxImg.src = imageArray[currentIndex].src;
     };
 
-    const showPrev = () => {
+    const prev = () => {
       currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
       lightboxImg.src = imageArray[currentIndex].src;
     };
 
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => openLightbox(img.src, index));
-    });
+    images.forEach((img, i) => img.addEventListener('click', () => open(img.src, i)));
 
-    closeBtn?.addEventListener('click', closeLightbox);
-    nextBtn?.addEventListener('click', showNext);
-    prevBtn?.addEventListener('click', showPrev);
+    closeBtn?.addEventListener('click', close);
+    nextBtn?.addEventListener('click', next);
+    prevBtn?.addEventListener('click', prev);
 
-    lightbox?.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
+    lightbox?.addEventListener('click', e => {
+      if (e.target === lightbox) close();
     });
   }
 
 
   /* =========================
-     SERVICE FORM DYNAMIC UI
+     SERVICE UI
   ========================= */
   const serviceType = document.getElementById('serviceType');
   const weddingOptions = document.getElementById('weddingOptions');
@@ -144,233 +128,82 @@ document.addEventListener("DOMContentLoaded", () => {
   const hoursField = document.getElementById('hoursField');
 
   const hideAll = () => {
-    weddingOptions?.style && (weddingOptions.style.display = 'none');
-    eventOptions?.style && (eventOptions.style.display = 'none');
-    hoursField?.style && (hoursField.style.display = 'none');
+    weddingOptions && (weddingOptions.style.display = 'none');
+    eventOptions && (eventOptions.style.display = 'none');
+    hoursField && (hoursField.style.display = 'none');
   };
 
-  if (serviceType) {
-    serviceType.addEventListener('change', () => {
-      hideAll();
+  serviceType?.addEventListener('change', () => {
+    hideAll();
 
-      if (serviceType.value === 'wedding') {
-        weddingOptions.style.display = 'block';
-      } else if (serviceType.value === 'event') {
-        eventOptions.style.display = 'block';
-      }
-    });
-  }
-
-  if (eventPackage) {
-    eventPackage.addEventListener('change', () => {
-      if (eventPackage.value === 'hourly') {
-        hoursField.style.display = 'block';
-      } else {
-        hoursField.style.display = 'none';
-      }
-    });
-  }
-
-
-  /* =========================
-     INQUIRY FORM (MODAL)
-  ========================= */
-  // const inquiryForm = document.querySelector('#inquiryModal form');
-
-  // if (inquiryForm) {
-  //   inquiryForm.addEventListener('submit', async (e) => {
-  //     e.preventDefault();
-
-  //     const formData = new FormData(inquiryForm);
-
-  //     try {
-  //       const response = await fetch(inquiryForm.action, {
-  //         method: 'POST',
-  //         body: formData,
-  //         headers: { Accept: 'application/json' }
-  //       });
-
-  //       if (response.ok) {
-  //         inquiryForm.reset();
-
-  //         const modalEl = document.getElementById('inquiryModal');
-  //         const modal = bootstrap?.Modal?.getInstance(modalEl);
-  //         modal?.hide();
-
-  //         alert('Thank you! We will get back to you soon.');
-  //       } else {
-  //         alert('Failed to send inquiry.');
-  //       }
-  //     } catch (err) {
-  //       console.error(err);
-  //       alert('Something went wrong.');
-  //     }
-  //   });
-  // }
-
-
-  /* =========================
-     BOOKING FORM (FORMSPREE)
-  ========================= */
-//     document.addEventListener("DOMContentLoaded", () => {
-//     const bookingForm = document.querySelector(".booking-form");
-
-//     if (!bookingForm) {
-//       console.warn("Booking form not found");
-//       return;
-//     }
-
-//     bookingForm.addEventListener("submit", async (e) => {
-//       e.preventDefault();
-//       console.log("Submit intercepted");
-
-//       try {
-//         const response = await fetch("https://formspree.io/f/xrejlqyl", {
-//           method: "POST",
-//           body: new FormData(bookingForm),
-//           headers: { Accept: "application/json" }
-//         });
-
-//         if (response.ok) {
-//           alert("Booking submitted successfully!");
-//           bookingForm.reset();
-//         } else {
-//           alert("Something went wrong.");
-//         }
-//       } catch (err) {
-//         alert("Network error.");
-//       }
-//     });
-//   });
-
-// });
-
-  document.addEventListener("DOMContentLoaded", () => {
-
-    /* =========================
-      BOOKING FORM
-    ========================= */
-    const bookingForm = document.querySelector(".booking-form");
-
-    if (bookingForm) {
-
-      bookingForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        console.log("Booking submit intercepted");
-
-        try {
-
-          const response = await fetch(
-            "https://formspree.io/f/xrejlqyl",
-            {
-              method: "POST",
-              body: new FormData(bookingForm),
-              headers: {
-                Accept: "application/json"
-              }
-            }
-          );
-
-          if (response.ok) {
-
-            bookingForm.reset();
-
-            // optional dynamic reset
-            if (typeof hideAll === "function") {
-              hideAll();
-            }
-
-            // close modal if booking form is inside one
-            const bookingModal =
-              document.getElementById("bookingModal");
-
-            if (
-              bookingModal &&
-              typeof bootstrap !== "undefined"
-            ) {
-              const modal =
-                bootstrap.Modal.getInstance(bookingModal);
-
-              modal?.hide();
-            }
-
-            alert("Booking submitted successfully!");
-
-          } else {
-            alert("Something went wrong.");
-          }
-
-        } catch (err) {
-
-          console.error(err);
-          alert("Network error.");
-
-        }
-      });
+    if (serviceType.value === 'wedding' && weddingOptions) {
+      weddingOptions.style.display = 'block';
     }
 
-
-
-    /* =========================
-      INQUIRY FORM
-    ========================= */
-    const inquiryForm =
-      document.querySelector("#inquiryModal form");
-
-    if (inquiryForm) {
-
-      inquiryForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        console.log("Inquiry submit intercepted");
-
-        try {
-
-          const response = await fetch(
-            inquiryForm.action,
-            {
-              method: "POST",
-              body: new FormData(inquiryForm),
-              headers: {
-                Accept: "application/json"
-              }
-            }
-          );
-
-          if (response.ok) {
-
-            inquiryForm.reset();
-
-            const inquiryModal =
-              document.getElementById("inquiryModal");
-
-            if (
-              inquiryModal &&
-              typeof bootstrap !== "undefined"
-            ) {
-              const modal =
-                bootstrap.Modal.getInstance(inquiryModal);
-
-              modal?.hide();
-            }
-
-            alert(
-              "Thank you! We will get back to you soon."
-            );
-
-          } else {
-            alert("Failed to send inquiry.");
-          }
-
-        } catch (err) {
-
-          console.error(err);
-          alert("Something went wrong.");
-
-        }
-      });
+    if (serviceType.value === 'event' && eventOptions) {
+      eventOptions.style.display = 'block';
     }
-
   });
-})
+
+  eventPackage?.addEventListener('change', () => {
+    if (!hoursField) return;
+
+    hoursField.style.display =
+      eventPackage.value === 'hourly' ? 'block' : 'none';
+  });
+
+
+  /* =========================
+     BOOKING FORM
+  ========================= */
+  const bookingForm = document.querySelector(".booking-form");
+
+  bookingForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("https://formspree.io/f/xrejlqyl", {
+        method: "POST",
+        body: new FormData(bookingForm),
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        alert("Booking submitted successfully!");
+        bookingForm.reset();
+      } else {
+        alert("Something went wrong.");
+      }
+    } catch (err) {
+      alert("Network error.");
+    }
+  });
+
+
+  /* =========================
+     INQUIRY FORM
+  ========================= */
+  const inquiryForm = document.getElementById("inquiryForm");
+
+  inquiryForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("https://formspree.io/f/xrejlqyl", {
+        method: "POST",
+        body: new FormData(inquiryForm),
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        alert("Thank you! We will get back to you soon.");
+        inquiryForm.reset();
+      } else {
+        alert("Failed to send inquiry.");
+      }
+    } catch (err) {
+      alert("Network error.");
+    }
+  });
+
+});
