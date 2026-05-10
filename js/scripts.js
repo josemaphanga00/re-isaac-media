@@ -175,73 +175,202 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      INQUIRY FORM (MODAL)
   ========================= */
-  const inquiryForm = document.querySelector('#inquiryModal form');
+  // const inquiryForm = document.querySelector('#inquiryModal form');
 
-  if (inquiryForm) {
-    inquiryForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  // if (inquiryForm) {
+  //   inquiryForm.addEventListener('submit', async (e) => {
+  //     e.preventDefault();
 
-      const formData = new FormData(inquiryForm);
+  //     const formData = new FormData(inquiryForm);
 
-      try {
-        const response = await fetch(inquiryForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: { Accept: 'application/json' }
-        });
+  //     try {
+  //       const response = await fetch(inquiryForm.action, {
+  //         method: 'POST',
+  //         body: formData,
+  //         headers: { Accept: 'application/json' }
+  //       });
 
-        if (response.ok) {
-          inquiryForm.reset();
+  //       if (response.ok) {
+  //         inquiryForm.reset();
 
-          const modalEl = document.getElementById('inquiryModal');
-          const modal = bootstrap?.Modal?.getInstance(modalEl);
-          modal?.hide();
+  //         const modalEl = document.getElementById('inquiryModal');
+  //         const modal = bootstrap?.Modal?.getInstance(modalEl);
+  //         modal?.hide();
 
-          alert('Thank you! We will get back to you soon.');
-        } else {
-          alert('Failed to send inquiry.');
-        }
-      } catch (err) {
-        console.error(err);
-        alert('Something went wrong.');
-      }
-    });
-  }
+  //         alert('Thank you! We will get back to you soon.');
+  //       } else {
+  //         alert('Failed to send inquiry.');
+  //       }
+  //     } catch (err) {
+  //       console.error(err);
+  //       alert('Something went wrong.');
+  //     }
+  //   });
+  // }
 
 
   /* =========================
      BOOKING FORM (FORMSPREE)
   ========================= */
-    document.addEventListener("DOMContentLoaded", () => {
+//     document.addEventListener("DOMContentLoaded", () => {
+//     const bookingForm = document.querySelector(".booking-form");
+
+//     if (!bookingForm) {
+//       console.warn("Booking form not found");
+//       return;
+//     }
+
+//     bookingForm.addEventListener("submit", async (e) => {
+//       e.preventDefault();
+//       console.log("Submit intercepted");
+
+//       try {
+//         const response = await fetch("https://formspree.io/f/xrejlqyl", {
+//           method: "POST",
+//           body: new FormData(bookingForm),
+//           headers: { Accept: "application/json" }
+//         });
+
+//         if (response.ok) {
+//           alert("Booking submitted successfully!");
+//           bookingForm.reset();
+//         } else {
+//           alert("Something went wrong.");
+//         }
+//       } catch (err) {
+//         alert("Network error.");
+//       }
+//     });
+//   });
+
+// });
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================
+      BOOKING FORM
+    ========================= */
     const bookingForm = document.querySelector(".booking-form");
 
-    if (!bookingForm) {
-      console.warn("Booking form not found");
-      return;
+    if (bookingForm) {
+
+      bookingForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        console.log("Booking submit intercepted");
+
+        try {
+
+          const response = await fetch(
+            "https://formspree.io/f/xrejlqyl",
+            {
+              method: "POST",
+              body: new FormData(bookingForm),
+              headers: {
+                Accept: "application/json"
+              }
+            }
+          );
+
+          if (response.ok) {
+
+            bookingForm.reset();
+
+            // optional dynamic reset
+            if (typeof hideAll === "function") {
+              hideAll();
+            }
+
+            // close modal if booking form is inside one
+            const bookingModal =
+              document.getElementById("bookingModal");
+
+            if (
+              bookingModal &&
+              typeof bootstrap !== "undefined"
+            ) {
+              const modal =
+                bootstrap.Modal.getInstance(bookingModal);
+
+              modal?.hide();
+            }
+
+            alert("Booking submitted successfully!");
+
+          } else {
+            alert("Something went wrong.");
+          }
+
+        } catch (err) {
+
+          console.error(err);
+          alert("Network error.");
+
+        }
+      });
     }
 
-    bookingForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      console.log("Submit intercepted");
 
-      try {
-        const response = await fetch("https://formspree.io/f/xrejlqyl", {
-          method: "POST",
-          body: new FormData(bookingForm),
-          headers: { Accept: "application/json" }
-        });
 
-        if (response.ok) {
-          alert("Booking submitted successfully!");
-          bookingForm.reset();
-        } else {
+    /* =========================
+      INQUIRY FORM
+    ========================= */
+    const inquiryForm =
+      document.querySelector("#inquiryModal form");
+
+    if (inquiryForm) {
+
+      inquiryForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        console.log("Inquiry submit intercepted");
+
+        try {
+
+          const response = await fetch(
+            inquiryForm.action,
+            {
+              method: "POST",
+              body: new FormData(inquiryForm),
+              headers: {
+                Accept: "application/json"
+              }
+            }
+          );
+
+          if (response.ok) {
+
+            inquiryForm.reset();
+
+            const inquiryModal =
+              document.getElementById("inquiryModal");
+
+            if (
+              inquiryModal &&
+              typeof bootstrap !== "undefined"
+            ) {
+              const modal =
+                bootstrap.Modal.getInstance(inquiryModal);
+
+              modal?.hide();
+            }
+
+            alert(
+              "Thank you! We will get back to you soon."
+            );
+
+          } else {
+            alert("Failed to send inquiry.");
+          }
+
+        } catch (err) {
+
+          console.error(err);
           alert("Something went wrong.");
-        }
-      } catch (err) {
-        alert("Network error.");
-      }
-    });
-  });
 
-});
-  
+        }
+      });
+    }
+
+  });
+})
