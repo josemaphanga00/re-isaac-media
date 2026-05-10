@@ -171,6 +171,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         alert("Booking submitted successfully!");
         bookingForm.reset();
+
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 500);
+
       } else {
         alert("Something went wrong.");
       }
@@ -183,7 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      INQUIRY FORM
   ========================= */
-  const inquiryForm = document.getElementById("inquiry-Form");
+  // const inquiryForm = document.getElementById("inquiry-form");
+  const inquiryForm = document.querySelector(".inquiry-form");
 
   inquiryForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -198,6 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         alert("Thank you! We will get back to you soon.");
         inquiryForm.reset();
+
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 500);
+
       } else {
         alert("Failed to send inquiry.");
       }
