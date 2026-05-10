@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      INQUIRY FORM
   ========================= */
-  const inquiryForm = document.getElementById("inquiryForm");
+  const inquiryForm = document.getElementById("inquiry-Form");
 
   inquiryForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
