@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bookingForm.reset();
 
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "#contact";
         }, 500);
 
       } else {
