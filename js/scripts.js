@@ -158,29 +158,33 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================= */
   const bookingForm = document.querySelector(".booking-form");
 
-  bookingForm?.addEventListener("submit", async (e) => {
+  if (!bookingForm) {
+    console.warn("Booking form not found — check your selector or HTML.");
+    return;
+  }
+
+  bookingForm.reset(); // clears browser-restored values on page load
+
+  bookingForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch("https://formspree.io/f/xrejlqyl", {
         method: "POST",
         body: new FormData(bookingForm),
-        headers: { Accept: "application/json" }
+        headers: { Accept: "application/json" },
       });
 
       if (response.ok) {
-        alert("Booking submitted successfully!");
-        bookingForm.reset();
-
-        setTimeout(() => {
-          window.location.href = "#contact";
-        }, 500);
-
+        alert("Thank you! We will get back to you soon.");
+        bookingForm.reset();  // ✅ correct variable
+        window.location.href = "#contact";
       } else {
-        alert("Something went wrong.");
+        alert("Something went wrong. Please try again.");
       }
     } catch (err) {
-      alert("Network error.");
+      console.error("Submission error:", err);
+      alert("Network error. Please check your connection and try again.");
     }
   });
 
@@ -188,33 +192,101 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      INQUIRY FORM
   ========================= */
-  // const inquiryForm = document.getElementById("inquiry-form");
+  // const inquiryForm = document.querySelector(".inquiry-form");
+
+  // inquiryForm?.addEventListener("submit", async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await fetch("https://formspree.io/f/xrejlqyl", {
+  //       method: "POST",
+  //       body: new FormData(inquiryForm),
+  //       headers: { Accept: "application/json" }
+  //     });
+
+      // if (response.ok) {
+      //   alert("Thank you! We will get back to you soon.");
+      //   inquiryForm.reset();
+
+        // setTimeout(() => {
+        //   window.location.href = "#contact";
+        // }, 500);
+
+  //       if (response.ok) {
+  //         alert("Thank you! We will get back to you soon.");
+  //         inquiryForm.reset();
+  //         window.location.href = "#contact";
+  //       }
+        
+
+  //     } else {
+  //       alert("Failed to send inquiry.");
+  //     }
+  //   } catch (err) {
+  //     alert("Network error.");
+  //   }
+  // });
+
+
+  // const inquiryForm = document.querySelector(".inquiry-form");
+
+  // inquiryForm?.addEventListener("submit", async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await fetch("https://formspree.io/f/xrejlqyl", {
+  //       method: "POST",
+  //       body: new FormData(inquiryForm),
+  //       headers: { Accept: "application/json" }
+  //     });
+
+  //     if (response.ok) {
+
+  //       inquiryForm.reset();
+
+  //       // waits until user clicks OK
+  //       alert("Thank you! We will get back to you soon.");
+
+  //       // redirect AFTER OK
+  //       window.location.href = "#contact";
+
+  //     } else {
+  //       alert("Failed to send inquiry.");
+  //     }
+
+  //   } catch (err) {
+  //     alert("Network error.");
+  //   }
+  // });
+
+
   const inquiryForm = document.querySelector(".inquiry-form");
 
-  inquiryForm?.addEventListener("submit", async (e) => {
+  if (!inquiryForm) {
+    console.warn("Inquiry form not found — check your selector or HTML.");
+    return;
+  }
+
+  inquiryForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch("https://formspree.io/f/xrejlqyl", {
         method: "POST",
         body: new FormData(inquiryForm),
-        headers: { Accept: "application/json" }
+        headers: { Accept: "application/json" },
       });
 
       if (response.ok) {
         alert("Thank you! We will get back to you soon.");
         inquiryForm.reset();
-
-        setTimeout(() => {
-          window.location.href = "#contact";
-        }, 500);
-
+        window.location.href = "#contact";
       } else {
-        alert("Failed to send inquiry.");
+        alert("Failed to send inquiry. Please try again.");
       }
     } catch (err) {
-      alert("Network error.");
+      console.error("Submission error:", err);
+      alert("Network error. Please check your connection and try again.");
     }
   });
-
 });
