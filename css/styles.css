@@ -12344,9 +12344,9 @@ section#contact form#contactForm :-ms-input-placeholder {
   border-radius: 0;
 
   /* glass effect */
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
   border: 1px solid rgba(255, 255, 255, 0.12);
 
@@ -12354,10 +12354,10 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 /* soft dark overlay behind modal */
-#gallerymodal.modal {
+/* #gallerymodal.modal {
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(6px);
-}
+} */
 
 /* =========================
    MODAL BODY
@@ -12688,10 +12688,10 @@ tablet (3 columns) */
 }
 
 /* overlay behind modal */
-#bookingModal.modal {
+/* #bookingModal.modal {
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(6px);
-}
+} */
 
 /* =========================
    FORM FIELDS
@@ -12817,10 +12817,10 @@ tablet (3 columns) */
 }
 
 /* dark overlay behind modal */
-#inquiryModal.modal {
+/* #inquiryModal.modal {
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(6px);
-}
+} */
 
 /* =========================
    INPUTS / SELECT / TEXTAREA
