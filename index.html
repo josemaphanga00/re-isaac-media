@@ -104,64 +104,117 @@
 
         <!-- Portfolio Grid-->
         <section class="page-section" id="portfolio">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Wedding Packages</h2>
-                    <h3 class="section-subheading text-muted">
-                        Isaac Media
-                    </h3>
-                    <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 1-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="assets/img/package-img/msiza.webp" id="imagepack" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading white-text">Essence</div>
-                                <div class="portfolio-caption-subheading text-white-50">Click to see full package details</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 2-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="assets/img/package-img/is3.webp" id="imagepack" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading white-text">Signature</div>
-                                <div class="portfolio-caption-subheading text-white-50">Click to see full package details</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 3-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="assets/img/package-img/sandrasabelo.webp" id="imagepack" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading white-text">Legacy</div>
-                                <div class="portfolio-caption-subheading text-white-50">Click to see full package details</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Wedding Packages</h2>
+                <h3 class="section-subheading text-muted">
+                    Isaac Media
+                </h3>
             </div>
-        </section>
 
+            <div class="packages-grid">
+
+                <!-- CARD 1 -->
+                <div class="package-card">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+
+                        <div class="package-image-wrap">
+                            <img class="img-fluid imagepack"
+                                src="assets/img/package-img/msiza.webp"
+                                alt="Essence Package" />
+
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fas fa-plus fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="package-content">
+                            <h4 class="package-title">Essence</h4>
+
+                            <p class="package-description">
+                                Intimate coverage for the moments that matter most.
+                            </p>
+
+                            <span class="package-link">
+                                → See full package
+                            </span>
+                        </div>
+
+                    </a>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="package-card featured">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+
+                        <div class="package-image-wrap">
+                            <img class="img-fluid imagepack"
+                                src="assets/img/package-img/is3.webp"
+                                alt="Signature Package" />
+
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fas fa-plus fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="package-content">
+
+                            <span class="popular-badge">
+                                MOST POPULAR
+                            </span>
+
+                            <h4 class="package-title">Signature</h4>
+
+                            <p class="package-description">
+                                Full-day cinematic storytelling from start to finish.
+                            </p>
+
+                            <span class="package-link">
+                                → See full package
+                            </span>
+                        </div>
+
+                    </a>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="package-card">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+
+                        <div class="package-image-wrap">
+                            <img class="img-fluid imagepack"
+                                src="assets/img/package-img/sandrasabelo.webp"
+                                alt="Legacy Package" />
+
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fas fa-plus fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="package-content">
+                            <h4 class="package-title">Legacy</h4>
+
+                            <p class="package-description">
+                                Premium experience — every detail beautifully preserved.
+                            </p>
+
+                            <span class="package-link">
+                                → See full package
+                            </span>
+                        </div>
+
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
         <!-- PAGE SECTION -->
         <section class="page-section" id="event-portfolio">

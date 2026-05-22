@@ -11390,7 +11390,7 @@ header.masthead .btn-primary {
   transform: translateY(0);
 }
 
-#portfolio .portfolio-item {
+/* #portfolio .portfolio-item {
   max-width: 26rem;
   margin-left: auto;
   margin-right: auto;
@@ -11432,7 +11432,273 @@ header.masthead .btn-primary {
 #portfolio .portfolio-item .portfolio-caption .portfolio-caption-subheading {
   font-style: italic;
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+} */
+
+/* ___________________________________________________________________ */
+/* SECTION */
+.page-section {
+  padding: 6rem 0;
 }
+
+section.page-section {
+  background: transparent !important;
+}
+
+.page-section .container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 24px;
+  padding: 3rem;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* TITLES */
+.page-section h2.section-heading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.page-section h3.section-subheading {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 4rem;
+  color: rgba(255,255,255,0.6) !important;
+}
+
+/* GRID */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* CARD */
+.package-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.package-card:hover {
+  transform: translateY(-8px);
+  border-color: #8b3dff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* FEATURED CARD */
+.package-card.featured {
+  border: 1px solid #8b3dff;
+}
+
+/* IMAGE */
+.package-image-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.imagepack {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+/* HOVER */
+.portfolio-hover {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.portfolio-link:hover .portfolio-hover {
+  opacity: 1;
+}
+
+.portfolio-hover-content {
+  color: white;
+}
+
+/* CONTENT */
+.package-content {
+  padding: 1.3rem;
+}
+
+.package-title {
+  color: #fff;
+  font-size: 1.35rem;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+
+.package-description {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* LINK */
+.package-link {
+  color: #8b3dff;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* BADGE */
+.popular-badge {
+  display: inline-block;
+  background: rgba(139, 61, 255, 0.12);
+  color: #caa6ff;
+  border: 1px solid rgba(139, 61, 255, 0.4);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+/* REMOVE LINK DECORATION */
+.portfolio-link {
+  text-decoration: none;
+  display: block;
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+
+    .packages-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .package-card {
+        border-radius: 16px;
+        overflow: hidden;
+
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+
+        border: 1px solid rgba(255, 255, 255, 0.12);
+
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .package-card.featured {
+        border: 1px solid rgba(168, 85, 247, 0.65);
+
+        box-shadow:
+            0 0 0 1px rgba(168, 85, 247, 0.2),
+            0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .package-card a {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        padding: 16px;
+
+        text-decoration: none;
+    }
+
+    /* IMAGE LEFT */
+    .package-image-wrap {
+        width: 60px;
+        height: 60px;
+
+        flex-shrink: 0;
+
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .package-image-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* REMOVE BIG IMAGE HEIGHT */
+    .imagepack {
+        height: 100% !important;
+    }
+
+    /* TEXT RIGHT */
+    .package-content {
+        flex: 1;
+        padding: 0 !important;
+    }
+
+    .package-title {
+        margin: 0;
+
+        font-size: 1.1rem;
+        font-weight: 600;
+
+        color: #fff;
+    }
+
+    .package-description {
+        margin: 4px 0 8px;
+
+        color: rgba(255, 255, 255, 0.72);
+
+        font-size: 0.78rem;
+        line-height: 1.4;
+    }
+
+    .package-link {
+        color: #b026ff;
+
+        font-size: 0.72rem;
+        font-weight: 500;
+    }
+
+    .popular-badge {
+        display: inline-block;
+
+        margin-bottom: 6px;
+
+        padding: 3px 8px;
+
+        border-radius: 999px;
+
+        background: rgba(255, 255, 255, 0.9);
+
+        color: #7e22ce;
+
+        font-size: 0.52rem;
+        font-weight: 700;
+
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+    }
+
+    /* REMOVE HOVER */
+    .portfolio-hover {
+        display: none;
+    }
+}
+
+
+/* ________________________________________ */
+
 
 .portfolio-modal .modal-dialog {
   margin: 1rem;
@@ -12316,19 +12582,22 @@ section#contact form#contactForm :-ms-input-placeholder {
    FULLSCREEN MODAL FIX
 ========================= */
 #gallerymodal .modal-dialog {
-  max-width: 100%;
-  margin: 0;
+  max-width: 98%;
+  margin: 15px auto;
   height: 100%;
 }
 
 #gallerymodal .modal-content {
-  height: 100vh;
-  border-radius: 0;
+  /* height: 100vh; */
+  height: calc(100vh - 60px);
+  border-radius: 20px !important;
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+  overflow: hidden;
 }
 
-/* remove Bootstrap padding boxing */
 #gallerymodal .modal-body {
   padding: 0;
   height: 100%;
