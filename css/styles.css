@@ -12035,7 +12035,7 @@ section.page-section {
 
   display: block;
   margin-inline: auto;
-  margin-left: 27.5rem !important;
+  /* margin-left: 27.5rem !important; */
 }
 
 /* MOBILE FIX */
