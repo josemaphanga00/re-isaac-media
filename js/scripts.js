@@ -76,8 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      LIGHTBOX
   ========================= */
-  const images = document.querySelectorAll('.gallery-item');
-  const lightbox = document.getElementById('lightbox');
+  const images = document.querySelectorAll('.gallery-masonry img');  const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const closeBtn = document.getElementById('lightboxClose');
   const nextBtn = document.getElementById('nextBtn');
