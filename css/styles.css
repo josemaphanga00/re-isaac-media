@@ -11174,14 +11174,18 @@ section.page-section {
   font-size: 0.75rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
 }
 #mainNav .navbar-brand {
   color: #ffc800;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700;
+  /* font-weight: 700; */
   letter-spacing: 0.0625em;
   text-transform: uppercase;
+}
+#mainNav .navbar-brand h2 {
+  font-weight: 500;
+  font-size: 1.4rem;
 }
 #mainNav .navbar-brand img {
   height: 1.5rem;
@@ -11193,7 +11197,7 @@ section.page-section {
   letter-spacing: 0.0625em;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #ffc800;
+  color: #0d6efd;
 }
 
 @media (min-width: 992px) {
@@ -11348,8 +11352,8 @@ header.masthead .masthead-subheading {
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 header.masthead .masthead-heading {
-  font-size: 3.25rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 500;
   line-height: 3.25rem;
   margin-bottom: 2rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -11367,8 +11371,8 @@ header.masthead .masthead-heading {
     margin-bottom: 2rem;
   }
   header.masthead .masthead-heading {
-    font-size: 4.5rem;
-    font-weight: 700;
+    font-size: 3.7rem;
+    font-weight: 500;
     line-height: 4.5rem;
     margin-bottom: 4rem;
   }
@@ -11465,9 +11469,10 @@ section.page-section {
 
 /* TITLES */
 .page-section h2.section-heading {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: #fff;
+  font-weight: 500;
 }
 
 .page-section h3.section-subheading {
