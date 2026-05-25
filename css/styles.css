@@ -12080,7 +12080,7 @@ section.page-section {
   width: 10rem;
   height: 10rem;
   max-width: 120%;
-  margin-left: -25px;
+  /* margin-left: -25px; */
 
   object-fit: cover;
   border-radius: 50%;
