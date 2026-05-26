@@ -12072,6 +12072,7 @@ section.page-section {
   margin-top: 1.5rem;
   margin-bottom: 0.3rem;
   color: #fff !important;
+  font-weight: 500;
 }
 
 .team-member p {
@@ -12283,6 +12284,10 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .event-text {
   flex: 1;
+}
+
+.event-text h3{
+  font-weight: 500;
 }
 
 /* =========================
@@ -12645,6 +12650,17 @@ section#contact form#contactForm :-ms-input-placeholder {
   height: 100%;
   overflow-y: auto;
 }
+
+.portfolio-modal .modal-body h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.portfolio-modal .modal-body h5 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
 
 
 /* =========================
