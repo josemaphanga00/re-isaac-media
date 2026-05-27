@@ -3629,6 +3629,125 @@ textarea.form-control-lg {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
+/* =========================
+   NAVBAR CONTAINER
+========================= */
+
+#mainNav .container{
+    display: flex;
+    align-items: center;
+}
+
+/* PUSH NAV ITEMS RIGHT */
+.navbar-collapse{
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* =========================
+   CTA BUTTON
+========================= */
+
+.nav-booking{
+    margin-left: 1.5rem;
+}
+
+.nav-book-btn{
+    border: none;
+    outline: none;
+
+    padding: 12px 22px;
+    border-radius: 10px;
+
+    color: white;
+    font-weight: 600;
+
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: all 0.35s ease;
+}
+
+.nav-book-btn:hover{
+    transform: translateY(-2px);
+
+    background: transparent;
+    border-color: #0d6efd;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 991px){
+
+    .navbar-collapse{
+
+        margin-top: 1rem;
+
+        padding: 1.5rem;
+
+        border-radius: 24px;
+
+        background: rgba(0,0,0,0.88);
+
+        backdrop-filter: blur(20px);
+
+        border: 1px solid rgba(255,255,255,0.08);
+
+        text-align: center;
+    }
+
+    .navbar-nav{
+        gap: 0.5rem;
+    }
+
+    .nav-booking{
+        margin-left: 0;
+        margin-top: 1.2rem;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-book-btn{
+
+        width: 100%;
+
+        max-width: 260px;
+
+        padding: 14px 20px;
+
+        border-radius: 10px;
+
+        background: linear-gradient(
+            135deg,
+            rgba(255,255,255,0.18),
+            rgba(255,255,255,0.05)
+        );
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    /* COOL MENU BUTTON */
+    .navbar-toggler{
+
+        border: none;
+
+        border-radius: 14px;
+
+        padding: 10px 16px;
+
+        background: rgba(255,255,255,0.08);
+
+        backdrop-filter: blur(12px);
+    }
+}
+
 /* * NEW NAVBAR SCROLL FEATURE */ */
 #mainNav.navbar-shrink {
   background-color: rgba(0, 0, 0, 0.4) !important;
@@ -11781,6 +11900,65 @@ section.page-section {
   /* spacing (optional but recommended) */
   padding: 1.5rem;
 }
+
+/* =========================
+   MODAL BUTTON GROUP
+========================= */
+
+.modal-btn-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 2rem;
+
+    flex-wrap: wrap;
+}
+
+/* BOOK BUTTON */
+
+.btn-book{
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.18),
+        rgba(255,255,255,0.05)
+    );
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(16px);
+
+    transition: all 0.3s ease;
+}
+
+.btn-book:hover{
+
+    background: transparent;
+    transform: translateY(-2px);
+}
+
+/* MOBILE STACK */
+
+@media (max-width: 768px){
+
+    .modal-btn-group{
+        flex-direction: column;
+    }
+
+    .btn-book{
+        order: 1;
+        width: 100%;
+    }
+
+    .btn-primary{
+        order: 2;
+        width: 100%;
+    }
+}
 /* _______________________________________________________________ */
 @media (max-width: 576px) {
 
@@ -12275,6 +12453,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   align-items: center;
 }
 
+
 .event-grid {
   flex: 1;
   display: grid;
@@ -12288,6 +12467,69 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .event-text h3{
   font-weight: 500;
+}
+
+/* DESKTOP */
+.event-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* BUTTON */
+.cta-buttons{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.cta-btn{
+    padding: 16px 32px;
+    border-radius: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+    .event-layout{
+        grid-template-columns: 1fr; /* stack everything */
+        gap: 2rem;
+    }
+
+    /* Images first */
+    .event-grid{
+        order: 1;
+    }
+
+    /* Text second */
+    .event-text{
+        order: 2;
+        text-align: center;
+    }
+
+    /* Button last */
+    .cta-buttons{
+        order: 3;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    /* Better mobile image layout */
+    .event-item{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .event-item img{
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
 }
 
 /* =========================
@@ -13259,7 +13501,31 @@ tablet (3 columns) */
   border-radius: 10px;
 }
 
+/* Footer Divider */
+.footer-line {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 2rem 0 1rem;
+}
 
+/* Bottom Footer */
+.footer-bottom {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.footer-bottom p {
+  margin: 0.3rem 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-bottom strong {
+  color: #ffffff;
+  font-weight: 600;
+}
 
 
 
