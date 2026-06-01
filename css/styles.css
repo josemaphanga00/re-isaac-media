@@ -1,15 +1,4 @@
 @charset "UTF-8";
-/*!
-* Start Bootstrap - Agency v7.0.12 (https://startbootstrap.com/theme/agency)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
-*/
-/*!
- * Bootstrap  v5.2.3 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -6183,14 +6172,6 @@ textarea.form-control-lg {
   background-size: 100% 100%;
 }
 
-/* rtl:options: {
-  "autoRename": true,
-  "stringMap":[ {
-    "name"    : "prev-next",
-    "search"  : "prev",
-    "replace" : "next"
-  } ]
-} */
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
 }
@@ -11163,56 +11144,6 @@ section.page-section {
 
 }
 
-/* #team-image {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-}
-
-.team-member {
-  text-align: center;
-} */
-
-/* #team-section .row {
-  justify-content: center;
-}
-
-.team-member {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.team-member img {
-  margin: 0 auto;
-  display: block;
-}
-#team-image {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-}
-
-.team-member {
-  text-align: center;
-} */
-
-/* #firstImage {
-  width: 85%;
-  max-width: 500px;
-  border-radius: 25px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-}
-@media (max-width: 768px) {
-  #firstImage {
-    display: block;
-    margin-left: auto;
-    margin-right: 6.5%;
-  }
-} */
 
 #firstImage {
   width: 85%;
@@ -11386,10 +11317,8 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  /* background-image: url("../assets/img/hero_sabelo.jpg"); */
   background-repeat: no-repeat;
   background-attachment: scroll;
-  /* background-position: center 20%; */
   background-size: cover;
   min-height: 100vh;
   background-attachment: fixed;
@@ -11527,11 +11456,7 @@ header.masthead .btn-primary {
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
-/* .btn-primary:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.5);
-} */
+
 
 .btn-primary {
   box-shadow: 0 0 20px rgba(255,255,255,0.1);
@@ -11548,49 +11473,6 @@ header.masthead .btn-primary {
   transform: translateY(0);
 }
 
-/* #portfolio .portfolio-item {
-  max-width: 26rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-#portfolio .portfolio-item .portfolio-link {
-  position: relative;
-  display: block;
-  margin: 0 auto;
-}
-#portfolio .portfolio-item .portfolio-link .portfolio-hover {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.25);
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity ease-in-out 0.25s;
-}
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
-  font-size: 1.25rem;
-  color: white;
-}
-#portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {
-  opacity: 1;
-}
-#portfolio .portfolio-item .portfolio-caption {
-  padding: 1.5rem;
-  text-align: center;
-  background-color: #fff;
-}
-#portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
-  font-size: 1.5rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700;
-  margin-bottom: 0;
-}
-#portfolio .portfolio-item .portfolio-caption .portfolio-caption-subheading {
-  font-style: italic;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-} */
 
 /* ___________________________________________________________________ */
 /* SECTION */
@@ -12205,20 +12087,6 @@ section.page-section {
     padding: 0 100px 20px 20px;
   }
 }
-/* .team-member {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-.team-member img {
-  width: 14rem;
-  height: 14rem;
-  border: 0.5rem solid rgba(0, 0, 0, 0.1);
-}
-.team-member h4, .team-member .h4 {
-  margin-top: 1.5rem;
-  margin-bottom: 0;
-} */
-
 
 /* =========================
    TEAM MEMBER (CENTERED CARD)
@@ -12415,61 +12283,6 @@ section#contact form#contactForm :-ms-input-placeholder {
   filter: brightness(0.9);
 }
 
-
-
-/* .modal {
-  z-index: 1055;
-}
-
-.modal-dialog {
-  max-width: 900px;
-}
-
-.modal-content {
-  overflow: visible !important;
-}
-
-.modal-body {
-  display: block !important;
-  overflow: visible !important;
-}
-
-.event-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 20px;
-  width: 100%;
-  min-height: 200px;
-}
-
-.event-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.event-item img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 14px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.event-item img:hover {
-  transform: scale(1.04);
-}
-
-@media (max-width: 576px) {
-  .event-grid {
-    grid-template-columns: 1fr;
-  }
-} */
-
-
 /* =========================
    MAIN LAYOUT (50/50 SPLIT)
 ========================= */
@@ -12566,7 +12379,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   overflow: hidden;
   border-radius: 14px;
 
-  aspect-ratio: 1 / 1; /* 🔥 THIS FIXES EVERYTHING */
+  aspect-ratio: 1 / 1; 
 }
 
 /* STACKED IMAGES */
@@ -12656,7 +12469,6 @@ section#contact form#contactForm :-ms-input-placeholder {
     gap: 10px;
   }
 
-  /* Slightly tighter images */
   .event-item {
     border-radius: 12px;
   }
@@ -12688,8 +12500,6 @@ section#contact form#contactForm :-ms-input-placeholder {
     font-size: 0.9rem;
     opacity: 0.8;
   }
-
-  /* OPTIONAL: slow animation slightly on mobile */
   .event-item .img1,
   .event-item .img2 {
     animation-duration: 8s;
@@ -12775,8 +12585,6 @@ section#contact form#contactForm :-ms-input-placeholder {
 /* LAYOUT */
 .footer-content {
   display: flex;
-  /* justify-content: space-between; */
-  /* gap: 2rem; */
   flex-wrap: wrap;
   justify-content: center; 
   gap: 4rem;               
@@ -12903,7 +12711,6 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 #gallerymodal .modal-content {
-  /* height: 100vh; */
   height: calc(100vh - 60px);
   border-radius: 20px !important;
   background: rgba(10, 10, 10, 0.95);
@@ -12948,11 +12755,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
-/* soft dark overlay behind modal */
-/* #gallerymodal.modal {
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-} */
+
 
 /* =========================
    MODAL BODY
@@ -13010,46 +12813,11 @@ section#contact form#contactForm :-ms-input-placeholder {
   }
 }
 
-/* @media (max-width: 768px) {
-  .gallery-masonry {
-    column-count: 2;
-    padding: 12px;
-  }
-} */
-
 @media (max-width: 480px) {
   .gallery-masonry {
     column-count: 3;
   }
 }
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-tablet (3 columns) */
-/* @media (max-width: 992px) {
-  .gallery-masonry {
-    column-count: 3;
-  }
-}
-
-/* mobile (2 columns) */
-@media (max-width: 768px) {
-  .gallery-masonry {
-    column-count: 2;
-    padding: 10px;
-  }
-}
-
-/* small phones (optional 1 column) */
-/* @media (max-width: 480px) {
-  .gallery-masonry {
-    column-count: 1;
-  }
-} */
-
 
 /* =========================
    LIGHTBOX GLASSMORPHISM
@@ -13283,12 +13051,6 @@ tablet (3 columns) */
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-/* overlay behind modal */
-/* #bookingModal.modal {
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-} */
-
 /* =========================
    FORM FIELDS
 ========================= */
@@ -13411,12 +13173,6 @@ tablet (3 columns) */
 
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
-
-/* dark overlay behind modal */
-/* #inquiryModal.modal {
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-} */
 
 /* =========================
    INPUTS / SELECT / TEXTAREA
@@ -13552,21 +13308,3 @@ tablet (3 columns) */
   color: #ffffff;
   font-weight: 600;
 }
-
-
-
-/* 067 2345 451
-079 475 0578
-
-066 3875 750 */
-
-/* When you come back, we can upgrade it into:
-
-premium booking flow
-auto pricing calculator
-WhatsApp/email automation
-full glass UI polish */
-
-/* send inquiry directly to WhatsApp (🔥 very popular in SA)
-auto-route inquiry type → different responses
-or connect both forms to a single backend system */

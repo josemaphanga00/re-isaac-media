@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (response.ok) {
         alert("Thank you! We will get back to you soon.");
-        bookingForm.reset();  // ✅correct variable
+        bookingForm.reset();  // correct variable
         window.location.href = "#contact";
       } else {
         alert("Something went wrong. Please try again.");
