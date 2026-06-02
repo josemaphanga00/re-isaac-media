@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      BOOKING FORM
   ========================= */
-  const bookingForm = document.querySelector(".booking-form");
+  const bookingForm = document.querySelector(".bookingform");
 
   if (!bookingForm) {
     console.warn("Booking form not found — check your selector or HTML.");
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  const inquiryForm = document.querySelector(".inquiry-form");
+  const inquiryForm = document.querySelector(".inquiryform");
 
   if (!inquiryForm) {
     console.warn("Inquiry form not found — check your selector or HTML.");
