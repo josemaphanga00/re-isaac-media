@@ -76,7 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      LIGHTBOX
   ========================= */
-  const images = document.querySelectorAll('.gallery-masonry img');  const lightbox = document.getElementById('lightbox');
+  const images = document.querySelectorAll('.gallery-masonry img');
+  const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const closeBtn = document.getElementById('lightboxClose');
   const nextBtn = document.getElementById('nextBtn');
@@ -120,16 +121,16 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      SERVICE UI
   ========================= */
-  const serviceType = document.getElementById('serviceType');
+  const serviceType    = document.getElementById('serviceType');
   const weddingOptions = document.getElementById('weddingOptions');
-  const eventOptions = document.getElementById('eventOptions');
-  const eventPackage = document.getElementById('eventPackage');
-  const hoursField = document.getElementById('hoursField');
+  const eventOptions   = document.getElementById('eventOptions');
+  const eventPackage   = document.getElementById('eventPackage');
+  const hoursField     = document.getElementById('hoursField');
 
   const hideAll = () => {
     weddingOptions && (weddingOptions.style.display = 'none');
-    eventOptions && (eventOptions.style.display = 'none');
-    hoursField && (hoursField.style.display = 'none');
+    eventOptions   && (eventOptions.style.display   = 'none');
+    hoursField     && (hoursField.style.display     = 'none');
   };
 
   serviceType?.addEventListener('change', () => {
@@ -155,66 +156,60 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      BOOKING FORM
   ========================= */
-  const bookingForm = document.querySelector(".bookingform");
+  const bookingForm = document.querySelector('.bookingform');
 
-  if (!bookingForm) {
-    console.warn("Booking form not found — check your selector or HTML.");
-    return;
+  if (bookingForm) {
+    bookingForm.reset();
+
+    bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const response = await fetch('https://formspree.io/f/xykvrrjg', {
+          method: 'POST',
+          body: new FormData(bookingForm),
+          headers: { Accept: 'application/json' },
+        });
+        if (response.ok) {
+          alert('Thank you! We will get back to you soon.');
+          bookingForm.reset();
+          window.location.href = '#contact';
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        alert('Network error. Please check your connection and try again.');
+      }
+    });
   }
 
-  bookingForm.reset(); // clears browser-restored values on page load
 
-  bookingForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  /* =========================
+     INQUIRY FORM
+  ========================= */
+  const inquiryForm = document.querySelector('.inquiryform');
 
-    try {
-      const response = await fetch("https://formspree.io/f/xykvrrjg", {
-        method: "POST",
-        body: new FormData(bookingForm),
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        alert("Thank you! We will get back to you soon.");
-        bookingForm.reset();  // correct variable
-        window.location.href = "#contact";
-      } else {
-        alert("Something went wrong. Please try again.");
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const response = await fetch('https://formspree.io/f/xpqnvvrd', {
+          method: 'POST',
+          body: new FormData(inquiryForm),
+          headers: { Accept: 'application/json' },
+        });
+        if (response.ok) {
+          alert('Thank you! We will get back to you soon.');
+          inquiryForm.reset();
+          window.location.href = '#contact';
+        } else {
+          alert('Failed to send inquiry. Please try again.');
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        alert('Network error. Please check your connection and try again.');
       }
-    } catch (err) {
-      console.error("Submission error:", err);
-      alert("Network error. Please check your connection and try again.");
-    }
-  });
-
-
-  const inquiryForm = document.querySelector(".inquiryform");
-
-  if (!inquiryForm) {
-    console.warn("Inquiry form not found — check your selector or HTML.");
-    return;
+    });
   }
 
-  inquiryForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("https://formspree.io/f/xpqnvvrd", {
-        method: "POST",
-        body: new FormData(inquiryForm),
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        alert("Thank you! We will get back to you soon.");
-        inquiryForm.reset();
-        window.location.href = "#contact";
-      } else {
-        alert("Failed to send inquiry. Please try again.");
-      }
-    } catch (err) {
-      console.error("Submission error:", err);
-      alert("Network error. Please check your connection and try again.");
-    }
-  });
 });
