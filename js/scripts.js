@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bookingForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       try {
-        const response = await fetch('https://formspree.io/f/xykvrrjg', {
+        const response = await fetch('https://formspree.io/f/xbdejrvg', {
           method: 'POST',
           body: new FormData(bookingForm),
           headers: { Accept: 'application/json' },
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inquiryForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       try {
-        const response = await fetch('https://formspree.io/f/xpqnvvrd', {
+        const response = await fetch('https://formspree.io/f/xgobewjj', {
           method: 'POST',
           body: new FormData(inquiryForm),
           headers: { Accept: 'application/json' },
