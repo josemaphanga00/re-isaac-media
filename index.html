@@ -3,235 +3,140 @@
     <head>
     <!-- ============================================================
         ISAAC MEDIA — Production <head>
-        Replace every remaining [YOUR_*] placeholder before going live.
-        Pre‑launch checklist at the bottom of this file.
+        ✅ All [YOUR_*] placeholders replaced — ready to go live.
     ============================================================ -->
 
-    <!-- ── 1. CHARACTER ENCODING ────────────────────────────────
-        Must be the very first element inside <head>.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 1. CHARACTER ENCODING ──────────────────────────────── -->
     <meta charset="utf-8" />
 
-    <!-- ── 2. VIEWPORT ──────────────────────────────────────────
-        shrink‑to‑fit=no is deprecated (ignored everywhere).
-        X‑UA‑Compatible is dead — IE is end‑of‑life (June 2022).
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 2. VIEWPORT ────────────────────────────────────────── -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- ── 3. THEME & COLOUR SCHEME ────────────────────────────
-        color‑scheme: dark avoids a white flash on dark‑mode
-        devices before CSS loads.
-        theme‑color tints Android Chrome’s browser chrome.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 3. THEME & COLOUR SCHEME ──────────────────────────── -->
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color"  content="#0d0d0d" />
 
-    <!-- ── 4. iOS AUTO‑DETECTION ────────────────────────────────
-        Prevents iOS Safari from automatically turning phone
-        numbers, addresses, and emails into links — avoids
-        unexpected layout shifts and styling conflicts.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 4. iOS AUTO‑DETECTION ─────────────────────────────── -->
     <meta name="format-detection" content="telephone=no, address=no, email=no" />
 
-    <!-- ── 5. TITLE ─────────────────────────────────────────────
-        ~58 characters — within Google’s preferred SERP limit.
-    ──────────────────────────────────────────────────────────── -->
-    <title>ISAAC MEDIA | Photography &amp Cinematic Videos — South Africa</title>
+    <!-- ── 5. TITLE ───────────────────────────────────────────── -->
+    <title>ISAAC MEDIA | Photography &amp; Cinematic Videos — South Africa</title>
 
-    <!-- ── 6. PRIMARY SEO META ──────────────────────────────────
-        description: 155 chars (Google’s limit is ~160).
-        robots: explicit rich‑snippet permissions.
-        geo.* helps local ZA search visibility.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 6. PRIMARY SEO META ────────────────────────────────── -->
     <meta name="description"
-            content="ISAAC MEDIA crafts cinematic photography and immersive visual stories for weddings, portraits, events, and modern brands across South Africa. Luxury visuals. Deliberate storytelling." />
+          content="ISAAC MEDIA crafts cinematic photography and immersive visual stories for weddings, portraits, events, and modern brands across South Africa. Luxury visuals. Deliberate storytelling." />
     <meta name="author"  content="ISAAC MEDIA" />
     <meta name="robots"  content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="geo.region"    content="ZA" />
     <meta name="geo.placename" content="South Africa" />
 
-    <!-- ── 7. CANONICAL ─────────────────────────────────────────
-        Prevents duplicate‑content issues if the site is ever
-        accessible via www / non‑www, http / https, etc.
-    ──────────────────────────────────────────────────────────── -->
-    <link rel="canonical" href="https://[YOUR_DOMAIN]/" />
+    <!-- ── 7. CANONICAL ───────────────────────────────────────── -->
+    <link rel="canonical" href="https://www.isaacmedia.co.za/" />
 
-    <!-- ── 8. OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ─────────
-        og:image must be 1200×630 px and under 8 MB.
-        og:image:alt improves accessibility on social shares.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 8. OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ──────── -->
     <meta property="og:type"         content="website" />
-    <meta property="og:url"          content="https://[YOUR_DOMAIN]/" />
+    <meta property="og:url"          content="https://www.isaacmedia.co.za/" />
     <meta property="og:site_name"    content="ISAAC MEDIA" />
     <meta property="og:locale"       content="en_ZA" />
     <meta property="og:title"        content="ISAAC MEDIA | Cinematic Photography &amp; Creative Media" />
     <meta property="og:description"  content="Luxury cinematic photography and immersive media storytelling for weddings, portraits, events, and modern brands across South Africa." />
-    <meta property="og:image"        content="https://[YOUR_DOMAIN]/assets/img/seo-preview.jpg" />
+    <meta property="og:image"        content="https://www.isaacmedia.co.za/assets/img/seo-preview.jpg" />
     <meta property="og:image:width"  content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt"    content="ISAAC MEDIA — Cinematic Photography Portfolio" />
 
-    <!-- ── 9. TWITTER / X CARD ──────────────────────────────────
-        summary_large_image shows a full‑width card — ideal for
-        a visual / photography brand.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 9. TWITTER / X CARD ───────────────────────────────── -->
+    <!-- NOTE: twitter:site and twitter:creator removed — add back if you have an X/Twitter account -->
     <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:site"        content="@[YOUR_TWITTER_HANDLE]" />
-    <meta name="twitter:creator"     content="@[YOUR_TWITTER_HANDLE]" />
-    <meta name="twitter:url"         content="https://[YOUR_DOMAIN]/" />
+    <meta name="twitter:url"         content="https://www.isaacmedia.co.za/" />
     <meta name="twitter:title"       content="ISAAC MEDIA | Cinematic Photography &amp; Creative Media" />
     <meta name="twitter:description" content="Modern cinematic photography portfolio with immersive visuals and luxury storytelling — South Africa." />
-    <meta name="twitter:image"       content="https://[YOUR_DOMAIN]/assets/img/seo-preview.jpg" />
+    <meta name="twitter:image"       content="https://www.isaacmedia.co.za/assets/img/seo-preview.jpg" />
     <meta name="twitter:image:alt"   content="ISAAC MEDIA — Cinematic Photography Portfolio" />
 
-    <!-- ── 10. PERFORMANCE — RESOURCE HINTS ────────────────────
-        preconnect starts the handshake to these origins early,
-        saving ~150–300 ms on first load.
-        dns‑prefetch is a lighter fallback for older browsers.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 10. PERFORMANCE — RESOURCE HINTS ──────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
 
-    <!-- ── 11. LCP IMAGE PRELOAD ────────────────────────────────
-        The first hero slide is the Largest Contentful Paint
-        element on every device. Preloading it as a high‑priority
-        fetch discovers the image immediately, shaving 500‑800 ms
-        off LCP.
-        !!! Keep this src in sync with the first hero slide !!!
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 11. LCP IMAGE PRELOAD ─────────────────────────────── -->
     <link rel="preload"
-            href="assets/img/hero_images/hero_sabelo.webp"
-            as="image"
-            fetchpriority="high" />
+          href="assets/img/hero_images/hero_sabelo.webp"
+          as="image"
+          fetchpriority="high" />
 
-    <!-- ── 12. FONTS ────────────────────────────────────────────
-        Non‑render‑blocking strategy using rel=preload + onload.
-        The <noscript> fallback works when JavaScript is disabled.
-        Only weights 400 and 700 are loaded — no wasted bytes.
-        display=swap prevents FOIT (Flash of Invisible Text).
-
-        ADVANCED: For even faster text rendering, preload the
-        specific woff2 files after they are generated by Google
-        Fonts. The pattern would be:
-        <link rel="preload" href="https://fonts.gstatic.com/…/…woff2"
-                as="font" type="font/woff2" crossorigin>
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 12. FONTS ──────────────────────────────────────────── -->
     <link rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap"
-            as="style"
-            onload="this.onload=null;this.rel='stylesheet'" />
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap"
+          as="style"
+          onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap"
-            rel="stylesheet" />
+              rel="stylesheet" />
     </noscript>
 
-    <!-- ── 13. MAIN CSS ─────────────────────────────────────────
-        Synchronously loaded so the CSSOM is built before paint.
-        Do not defer this file — it would cause a Flash of
-        Unstyled Content (FOUC).
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 13. MAIN CSS ───────────────────────────────────────── -->
     <link href="css/styles.css" rel="stylesheet" />
 
-    <!-- ── 14. FONT AWESOME — CSS delivery (v6.6.0) ────────────
-        CSS + webfont version instead of JS (all.js).
-        Zero JavaScript, zero DOM mutations — much faster paint.
-        Asynchronously loaded to stay non‑render‑blocking.
-        If you notice a brief flash of unstyled icons, load this
-        synchronously (remove the onload trick) — the file is
-        small enough (~8 KB gzipped) that it won’t hurt.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 14. FONT AWESOME (v6.6.0) ─────────────────────────── -->
     <link rel="preload"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-            as="style"
-            onload="this.onload=null;this.rel='stylesheet'"
-            crossorigin="anonymous" />
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          as="style"
+          onload="this.onload=null;this.rel='stylesheet'"
+          crossorigin="anonymous" />
     <noscript>
         <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-            crossorigin="anonymous" />
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+              crossorigin="anonymous" />
     </noscript>
 
-    <!-- ── 15. FAVICONS ─────────────────────────────────────────
-        Covers all major contexts: browser tabs, high‑DPI screens,
-        iOS home screen, and PWA manifest.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 15. FAVICONS ──────────────────────────────────────── -->
     <link rel="icon"             type="image/x-icon" href="assets/favicon.ico" />
     <link rel="icon"             type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
     <link rel="icon"             type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="assets/site.webmanifest" />
 
-    <!-- ── 16. SITEMAP HINT ─────────────────────────────────────
-        Helpful, though not strictly required — crawlers normally
-        discover sitemaps via robots.txt.
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 16. SITEMAP HINT ───────────────────────────────────── -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- ── 17. SCHEMA.ORG STRUCTURED DATA ──────────────────────
-        ProfessionalService with concrete details.
-        Enables rich results (contact info, service panels)
-        in Google Search.
-
-        Already pre‑filled with the information you provided.
-        Test before launch: https://search.google.com/test/rich-results
-    ──────────────────────────────────────────────────────────── -->
+    <!-- ── 17. SCHEMA.ORG STRUCTURED DATA ────────────────────── -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "ISAAC MEDIA",
-        "url": "https://[YOUR_DOMAIN]/",
-        "logo": "https://[YOUR_DOMAIN]/assets/img/logo.png",
-        "image": "https://[YOUR_DOMAIN]/assets/img/seo-preview.jpg",
+        "url": "https://www.isaacmedia.co.za/",
+        "logo": "https://www.isaacmedia.co.za/assets/img/logo.png",
+        "image": "https://www.isaacmedia.co.za/assets/img/seo-preview.jpg",
         "description": "Cinematic photography and creative media production brand specialising in weddings, portraits, events, and immersive visual storytelling across South Africa.",
         "priceRange": "$$",
         "telephone": "+27 76 730 8994",
         "email": "ngobeniisaac503@gmail.com",
         "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "ZA",
-        "addressRegion": "Gauteng",
-        "addressLocality": "Pretoria"
+            "@type": "PostalAddress",
+            "addressCountry": "ZA",
+            "addressRegion": "Gauteng",
+            "addressLocality": "Pretoria"
         },
         "areaServed": {
-        "@type": "Country",
-        "name": "South Africa"
+            "@type": "Country",
+            "name": "South Africa"
         },
         "serviceType": [
-        "Wedding Photography",
-        "Event Photography",
-        "Portrait Photography",
-        "Creative Media Production",
-        "Cinematic Videography"
+            "Wedding Photography",
+            "Event Photography",
+            "Portrait Photography",
+            "Creative Media Production",
+            "Cinematic Videography"
         ],
         "sameAs": [
-        "https://www.instagram.com/isaacmedia.official/"
+            "https://www.instagram.com/isaacmedia.official/"
         ]
     }
     </script>
 
-    <!--
-    ══════════════════════════════════════════════════════════════
-    PRE‑LAUNCH CHECKLIST — replace every [YOUR_*] value below
-    ══════════════════════════════════════════════════════════════
-    [ ] canonical href         → your actual domain (no trailing slash ambiguity)
-    [ ] og:url                 → your actual domain
-    [ ] og:image               → absolute URL to a 1200×630 jpg/png under 8MB
-    [ ] twitter:url            → your actual domain
-    [ ] twitter:image          → same image as og:image
-    [ ] twitter:site           → your @handle or remove the tag if no X account
-    [ ] twitter:creator        → your @handle or remove the tag if no X account
-    [ ] Schema: url            → your actual domain
-    [ ] Schema: logo           → absolute URL to your logo image
-    [ ] Schema: image          → same as og:image
-    [ ] preload href           → keep in sync with first hero slide src
-    [ ] site.webmanifest       → ensure name, short_name, and icons are filled in
-    [ ] sitemap.xml            → create and submit to Google Search Console
-    [ ] robots.txt             → create with: User-agent: * / Allow: /
-    ══════════════════════════════════════════════════════════════
-    -->
     </head>
 
     <body id="page-top">
