@@ -119,41 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     SERVICE UI
-  ========================= */
-  const serviceType    = document.getElementById('serviceType');
-  const weddingOptions = document.getElementById('weddingOptions');
-  const eventOptions   = document.getElementById('eventOptions');
-  const eventPackage   = document.getElementById('eventPackage');
-  const hoursField     = document.getElementById('hoursField');
-
-  const hideAll = () => {
-    weddingOptions && (weddingOptions.style.display = 'none');
-    eventOptions   && (eventOptions.style.display   = 'none');
-    hoursField     && (hoursField.style.display     = 'none');
-  };
-
-  serviceType?.addEventListener('change', () => {
-    hideAll();
-
-    if (serviceType.value === 'wedding' && weddingOptions) {
-      weddingOptions.style.display = 'block';
-    }
-
-    if (serviceType.value === 'event' && eventOptions) {
-      eventOptions.style.display = 'block';
-    }
-  });
-
-  eventPackage?.addEventListener('change', () => {
-    if (!hoursField) return;
-
-    hoursField.style.display =
-      eventPackage.value === 'hourly' ? 'block' : 'none';
-  });
-
-
-  /* =========================
      BOOKING FORM
   ========================= */
   const bookingForm = document.querySelector('.bookingform');
