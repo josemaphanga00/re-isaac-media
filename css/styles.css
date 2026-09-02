@@ -13308,3 +13308,193 @@ section#contact form#contactForm :-ms-input-placeholder {
   color: #ffffff;
   font-weight: 600;
 }
+
+/* ___________________________________ */
+.masthead-slide::after,
+.masthead::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.15) 0%,
+        rgba(0, 0, 0, 0.45) 70%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+ 
+.masthead .container {
+    position: relative;
+    z-index: 2;
+}
+ 
+/* -------------------- Eyebrow: "Welcome To" -------------------- */
+.masthead-subheading:first-of-type {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.15rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: heroRise 0.9s ease-out 0.15s forwards;
+}
+ 
+.masthead-subheading:first-of-type::before,
+.masthead-subheading:first-of-type::after {
+    content: "";
+    width: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: heroLine 0.8s ease-out 0.6s forwards;
+}
+ 
+@keyframes heroLine {
+    to { width: 2.5rem; }
+}
+ 
+/* -------------------- Main heading: "ISAAC MEDIA" -------------------- */
+.masthead-heading {
+    position: relative;
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    letter-spacing: 0.06em;
+    line-height: 1.05;
+    color: #ffffff;
+    padding: 1.5rem 3rem;
+    margin: 0.25rem 0 1rem;
+    opacity: 0;
+    animation: heroRise 1s ease-out 0.4s forwards;
+}
+ 
+/* Viewfinder corner brackets — the signature touch. Fade in after the type
+   settles, like a camera focusing on the subject. */
+.masthead-heading::before,
+.masthead-heading::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid rgba(255, 255, 255, 0.65);
+    opacity: 0;
+    animation: heroFocus 0.7s ease-out 1.1s forwards;
+}
+ 
+.masthead-heading::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+}
+ 
+.masthead-heading::after {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+}
+ 
+@keyframes heroFocus {
+    from { opacity: 0; transform: scale(1.15); }
+    to   { opacity: 1; transform: scale(1); }
+}
+ 
+/* -------------------- Tagline -------------------- */
+.masthead-subheading:last-of-type {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 300 !important;
+    font-size: clamp(1.1rem, 2vw, 1.5rem) !important;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 620px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: heroRise 1s ease-out 0.75s forwards;
+}
+ 
+@keyframes heroRise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+ 
+/* -------------------- Scroll indicator -------------------- */
+.scroll-indicator {
+    position: relative;
+    margin-top: 3rem;
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.35);
+    font-size: 0; /* hide the ↓ glyph, we're drawing a line instead */
+    overflow: hidden;
+    opacity: 0;
+    animation: heroRise 0.8s ease-out 1.4s forwards;
+}
+ 
+.scroll-indicator::after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #ffffff;
+    animation: scrollDrip 2.2s ease-in-out infinite;
+}
+ 
+@keyframes scrollDrip {
+    0%   { top: -40px; }
+    60%  { top: 40px; }
+    100% { top: 40px; }
+}
+ 
+/* -------------------- Motion & accessibility -------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .masthead-subheading:first-of-type,
+    .masthead-subheading:first-of-type::before,
+    .masthead-subheading:first-of-type::after,
+    .masthead-heading,
+    .masthead-heading::before,
+    .masthead-heading::after,
+    .masthead-subheading:last-of-type,
+    .scroll-indicator {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: translateX(50%) !important;
+        width: auto;
+    }
+    .masthead-subheading:first-of-type::before,
+    .masthead-subheading:first-of-type::after {
+        width: 2.5rem;
+    }
+    .scroll-indicator::after {
+        animation: none;
+        top: 0;
+    }
+}
+ 
+@media (max-width: 576px) {
+    .masthead-heading {
+        padding: 1rem 1.25rem;
+        letter-spacing: 0.03em;
+    }
+    .masthead-heading::before,
+    .masthead-heading::after {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+h1.masthead-heading,
+.masthead .masthead-heading {
+    display: inline-block !important;
+}
