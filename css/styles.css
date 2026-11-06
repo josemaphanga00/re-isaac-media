@@ -182,6 +182,41 @@ button {
 .icon-leading { margin-right: 0.5em; }
 .icon-trailing { margin-left: 0.5em; }
 
+.btn[data-whatsapp],
+.btn[href^="https://wa.me/"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65em;
+  background: #063d24;
+  border: 2px solid #25d366;
+  color: #fff;
+  font-weight: 750;
+  box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2), 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+.btn[data-whatsapp]:hover,
+.btn[href^="https://wa.me/"]:hover {
+  background: #075e35;
+  border-color: #65f59b;
+  transform: translateY(-2px);
+}
+.btn[data-whatsapp]:focus-visible,
+.btn[href^="https://wa.me/"]:focus-visible {
+  outline: 3px solid #9affbd;
+  outline-offset: 3px;
+}
+.whatsapp-icon { color: #25d366; }
+.btn[data-whatsapp] .icon-trailing,
+.btn[href^="https://wa.me/"] .icon-trailing { margin-left: 0; }
+.btn[data-whatsapp] .whatsapp-icon,
+.btn[href^="https://wa.me/"] .whatsapp-icon { width: 1.35em; height: 1.35em; }
+.social-icon[href^="https://wa.me/"] { color: #25d366; }
+.social-icon[href^="https://wa.me/"] svg { width: 22px; height: 22px; }
+.social-icon[href^="https://wa.me/"]:hover {
+  color: #65f59b;
+  border-color: #25d366;
+}
+
 /* ---------------------------------------------------------------------
    4. ISLAND NAVBAR — floating pill, shrinks on scroll, hamburger
    morphs into an X, mobile menu fills the screen with heavier frost.
@@ -469,8 +504,9 @@ button {
 .hero-title {
   position: relative;
   display: inline-block;
-  font-family: var(--font-display);
-  font-weight: 400;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 300;
   font-size: clamp(3rem, 8vw, 6.5rem);
   letter-spacing: 0.06em;
   line-height: 1.05;
@@ -835,9 +871,7 @@ button {
 }
 .event-slide.active { opacity: 1; }
 
-.event-price { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-accent); margin-bottom: 0.75rem; }
 .event-features { padding-left: 1.2rem; color: var(--color-text-muted); }
-.event-bundle { margin: 1rem 0; }
 
 @media (max-width: 768px) {
   .events-layout { grid-template-columns: minmax(0, 1fr); }
@@ -1476,8 +1510,11 @@ button {
 .lightbox.active { display: flex; }
 
 .lightbox-img {
+  width: auto;
+  height: auto;
   max-width: 90%;
   max-height: 85vh;
+  object-fit: contain;
   border-radius: var(--radius-lg);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }

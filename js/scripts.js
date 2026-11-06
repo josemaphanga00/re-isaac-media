@@ -533,7 +533,8 @@
     booking: () => `
       <h2 class="text-uppercase">Book Your Wedding</h2>
       <p class="item-intro text-muted">Isaac Media</p>
-      <form class="bookingform">
+      <form class="bookingform" action="https://api.staticforms.dev/submit" method="POST">
+        <input type="hidden" name="apiKey" value="sf_a3a08594f8aa3440cba2ddde">
         <input type="text" name="fullName" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="tel" name="phone" placeholder="Phone / WhatsApp Number" required>
@@ -545,11 +546,11 @@
         </select>
         <input type="date" name="eventDate" required>
         <input type="text" name="location" placeholder="Wedding Venue / Location">
-        <textarea name="message" placeholder="Tell us about your wedding day..."></textarea>
+        <textarea name="message" placeholder="Tell us about your wedding day..." required></textarea>
         <div class="form-actions">
           <button type="submit" class="btn btn-primary btn-xl text-uppercase">Submit</button>
           <button type="button" class="btn btn-outline-light btn-xl text-uppercase" data-whatsapp>
-            Enquire More<svg class="btn-icon icon-trailing" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.05-1.36A10 10 0 1 0 12 2zm0 18.2a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-3.1.84.83-3.02-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.28.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.2-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            Enquire More<svg class="btn-icon icon-trailing whatsapp-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.05-1.36A10 10 0 1 0 12 2zm0 18.2a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-3.1.84.83-3.02-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.28.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.2-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
           </button>
         </div>
       </form>
@@ -557,7 +558,8 @@
     inquiry: () => `
       <h2 class="text-uppercase">Make an Inquiry</h2>
       <p class="item-intro text-muted">Isaac Media</p>
-      <form class="inquiryform">
+      <form class="inquiryform" action="https://api.staticforms.dev/submit" method="POST">
+        <input type="hidden" name="apiKey" value="sf_5823fe54764db7234ee6a3e7">
         <input type="text" name="full_name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="tel" name="phone" placeholder="Phone / WhatsApp Number">
@@ -617,7 +619,7 @@
       <h5>${price}</h5>
       <div class="modal-btn-group">
         <a href="/booking" class="btn btn-book btn-xl text-uppercase" data-open-modal="booking">Book Session</a>
-        <button class="btn btn-primary btn-xl text-uppercase" data-whatsapp>Enquire More</button>
+        <button class="btn btn-primary btn-xl text-uppercase" data-whatsapp>Enquire More<svg class="btn-icon icon-trailing whatsapp-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.05-1.36A10 10 0 1 0 12 2zm0 18.2a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-3.1.84.83-3.02-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.28.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.2-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg></button>
       </div>
     `;
   }
@@ -648,7 +650,10 @@
       closeBtn.focus();
       bindFormsIn(content);
       const dateInput = content.querySelector('input[type="date"]');
-      if (dateInput) dateInput.min = new Date().toISOString().slice(0, 10);
+      if (dateInput) {
+        const today = new Date();
+        dateInput.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      }
       if (key === 'booking') {
         const requestedPackage = new URLSearchParams(location.search).get('package');
         const packageSelect = content.querySelector('[name="weddingPackage"]');
@@ -706,7 +711,24 @@
         return;
       }
       if (e.target.closest('[data-whatsapp]')) {
-        window.open('https://wa.me/27767308994', '_blank', 'noopener');
+        const trigger = e.target.closest('[data-whatsapp]');
+        const form = trigger.closest('.bookingform');
+        const bookingMessage = form && [
+          ['Name', form.querySelector('[name="fullName"]')?.value.trim()],
+          ['Email', form.querySelector('[name="email"]')?.value.trim()],
+          ['Phone', form.querySelector('[name="phone"]')?.value.trim()],
+          ['Package', form.querySelector('[name="weddingPackage"]')?.selectedOptions[0]?.textContent.trim()],
+          ['Event date', form.querySelector('[name="eventDate"]')?.value],
+          ['Location', form.querySelector('[name="location"]')?.value.trim()],
+          ['Message', form.querySelector('[name="message"]')?.value.trim()],
+        ].filter(([, value]) => value).map(([label, value]) => `${label}: ${value}`);
+        const packageTitle = !form && trigger.closest('#modal-content')?.querySelector('h2')?.textContent.trim();
+        const message = form
+          ? `Hi Isaac Media, I'd like to enquire about booking a wedding session.${bookingMessage.length ? `\n\n${bookingMessage.join('\n')}` : ''}`
+          : packageTitle
+            ? `Hi Isaac Media, I'm interested in the ${packageTitle} package. Could you please share more details?`
+            : "Hi Isaac Media, I'd like to enquire about your photography and videography services. Could you please share more details?";
+        window.open(`https://wa.me/27767308994?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
         return;
       }
       if (e.target.closest('[data-close]')) close();
@@ -744,17 +766,18 @@
   }
 
   /* =========================================================
-     FORMS — real Formspree endpoints, double-submit guarded
+     FORMS — provider endpoints, double-submit guarded
   ========================================================= */
   const FORM_ENDPOINTS = {
-    bookingform: 'https://formspree.io/f/xbdejrvg',
-    inquiryform: 'https://formspree.io/f/xgobewjj',
+    bookingform: 'https://api.staticforms.dev/submit',
+    inquiryform: 'https://api.staticforms.dev/submit',
   };
 
   function bindFormsIn(root) {
     Object.keys(FORM_ENDPOINTS).forEach((cls) => {
       const form = root.querySelector(`.${cls}`);
-      if (form && !form.dataset.bound) attachFormHandler(form, FORM_ENDPOINTS[cls]);
+      const endpoint = form?.getAttribute('action') || FORM_ENDPOINTS[cls];
+      if (form && endpoint && !form.dataset.bound) attachFormHandler(form, endpoint);
     });
   }
 
@@ -853,11 +876,6 @@
     });
   }
 
-  // Static (non-modal) forms present at load, if any exist outside modals
-  function initStaticForms() {
-    bindFormsIn(document);
-  }
-
   /* =========================================================
      FAQ ACCORDION — native, single-open, debounced resize recalibration
   ========================================================= */
@@ -865,26 +883,12 @@
   /* ---------------------------------------------------------------
      REVIEWS CAROUSEL
      Native scroll-snap does the motion; JS only wires the buttons,
-    dots and a11y. Only approved, genuine client reviews belong in REVIEWS;
-    the visible empty state remains until real copy is added.
-     Visit /?reviews=preview to see the layout with clearly-labelled
-     sample cards (never shown to normal visitors).
+     dots and a11y. Only genuine client reviews belong in REVIEWS.
   --------------------------------------------------------------- */
-  // DRAFT copy from the original mock-up — replace with real, client-approved
-  // reviews before launch. Leave this array empty and the section falls back
-  // to the "Share your experience" card instead.
   const REVIEWS = [
-    { name: "Sarah & John", meta: "Wedding", rating: 5, text: "ISAAC MEDIA captured our wedding beautifully. Every moment was perfect." },
-    { name: "Emily & Michael", meta: "Wedding", rating: 5, text: "Professional, creative, and a joy to work with. The photos exceeded our expectations." },
-    { name: "Jessica & David", meta: "Wedding", rating: 5, text: "Absolutely stunning work! The team made us feel so comfortable." },
-    { name: "Thabo & Lerato", meta: "Wedding", rating: 5, text: "From the first call to the final gallery, everything felt effortless. We still look at our photos every week." },
-    { name: "Naledi M.", meta: "Birthday Shoot", rating: 5, text: "Isaac made me feel confident in front of the camera. The edits were clean, bold and delivered fast." },
-    { name: "Kagiso & Palesa", meta: "Engagement", rating: 5, text: "Relaxed, creative and so easy to work with. Every frame feels like us." },
+    { name: "Jose Maphanga", meta: "Wedding", rating: 5, text: "Amazing photographer, they ran photography for my brother's wedding, It was really so amazing." },
+    { name: "Kemisetso Mothoa", meta: "Photoshoot", rating: 5, text: "To have been one of Isaac Media's muses has been an amazing experience. From the beginning of the shoot, I was given great inspos that really helped. I loved how I was guided on how to pose. There was no tension at all, just great vibes. And the pictures were delivered in less than a week. It was thee best shoot!" },
   ];
-  const PREVIEW_REVIEWS = [1, 2, 3, 4].map((n) => ({
-    name: "Sample Client " + n, meta: "Preview only", rating: 5,
-    text: "Sample review text for layout preview. Replace with a real client review."
-  }));
 
   function initReviews() {
     const section = document.getElementById('reviews');
@@ -892,8 +896,7 @@
     const dotsWrap = document.getElementById('reviews-dots');
     if (!section || !track || !dotsWrap) return;
 
-    const preview = /[?&]reviews=preview\b/.test(location.search);
-    const data = REVIEWS.length ? REVIEWS : (preview ? PREVIEW_REVIEWS : []);
+    const data = REVIEWS;
     if (!data.length) return;
 
     section.querySelector('#reviews-empty-state').hidden = true;
@@ -1012,8 +1015,8 @@
       if (!gallery.length) return;
       index = (i + gallery.length) % gallery.length;
       const sourceImage = gallery[index];
-      lightboxImg.width = Number(sourceImage.getAttribute('width')) || sourceImage.naturalWidth;
-      lightboxImg.height = Number(sourceImage.getAttribute('height')) || sourceImage.naturalHeight;
+      lightboxImg.removeAttribute('width');
+      lightboxImg.removeAttribute('height');
       lightboxImg.src = sourceImage.dataset.src || sourceImage.src;
       lightboxImg.alt = sourceImage.alt || '';
     };
@@ -1082,7 +1085,6 @@
       initScrollExperience,
       initNavbar,
       initEventSlideshows,
-      initStaticForms,
       initAccordion,
       initReviews,
     ].forEach((setup) => runWhenIdle(setup));
