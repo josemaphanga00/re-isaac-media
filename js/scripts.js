@@ -409,6 +409,7 @@
   const BASE_PATH = new URL('./', document.baseURI).pathname;
   const toPath = (p) => BASE_PATH + p.replace(/^\//, '');
   const GALLERY_PATH = toPath('/gallery');
+  const GALLERY_URL = `${BASE_PATH}?modal=gallery`;
   const DEFAULT_TITLE = document.title;
 
   // Closing an overlay we pushed a history entry for goes "back" instead of
@@ -430,8 +431,8 @@
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     overlay.querySelector('#gallery-close')?.focus();
-    if (pushUrl && location.pathname !== GALLERY_PATH) {
-      history.pushState({ gallery: true }, '', GALLERY_PATH);
+    if (pushUrl && new URLSearchParams(location.search).get('modal') !== 'gallery') {
+      history.pushState({ gallery: true }, '', GALLERY_URL);
     }
     document.title = 'Gallery | ISAAC MEDIA';
   }
@@ -447,8 +448,10 @@
     overlay.classList.remove('open');
     document.body.style.overflow = '';
     setTimeout(() => { overlay.hidden = true; galleryReturnFocus?.focus?.(); }, 300);
-    if (pushUrl && location.pathname === GALLERY_PATH) {
-      history.replaceState({}, '', BASE_PATH);
+    if (pushUrl && new URLSearchParams(location.search).get('modal') === 'gallery') {
+      const url = new URL(location.href);
+      url.searchParams.delete('modal');
+      history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
     }
     document.title = DEFAULT_TITLE;
   }
@@ -507,10 +510,10 @@
       if (event.key === 'Escape' && !overlay.hidden && !event.defaultPrevented) closeGalleryModal();
     });
     window.addEventListener('popstate', () => {
-      if (location.pathname === GALLERY_PATH) openGalleryModal(false);
+      if (location.pathname === GALLERY_PATH || new URLSearchParams(location.search).get('modal') === 'gallery') openGalleryModal(false);
       else closeGalleryModal(false);
     });
-    if (location.pathname === GALLERY_PATH) openGalleryModal(false);
+    if (location.pathname === GALLERY_PATH || new URLSearchParams(location.search).get('modal') === 'gallery') openGalleryModal(false);
   }
 
   /* =========================================================
@@ -618,7 +621,7 @@
       <ul class="list-inline">${items.map((item) => `<li>${item}</li>`).join('')}</ul>
       <h5>${price}</h5>
       <div class="modal-btn-group">
-        <a href="/booking" class="btn btn-book btn-xl text-uppercase" data-open-modal="booking">Book Session</a>
+        <a href="?modal=booking" class="btn btn-book btn-xl text-uppercase" data-open-modal="booking">Book Session</a>
         <button class="btn btn-primary btn-xl text-uppercase" data-whatsapp>Enquire More<svg class="btn-icon icon-trailing whatsapp-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.05-1.36A10 10 0 1 0 12 2zm0 18.2a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-3.1.84.83-3.02-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.28.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.2-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg></button>
       </div>
     `;
@@ -665,10 +668,11 @@
       currentKey = key;
       const route = MODAL_ROUTES[key];
       if (route) {
-        if (pushUrl && location.pathname !== route.path) {
+        if (pushUrl && new URLSearchParams(location.search).get('modal') !== key) {
+          const modalUrl = `${BASE_PATH}?modal=${encodeURIComponent(key)}`;
           // Modal -> modal swaps the entry so Back closes everything at once.
-          if (wasOpen) history.replaceState({ modal: key }, '', route.path);
-          else history.pushState({ modal: key }, '', route.path);
+          if (wasOpen) history.replaceState({ modal: key }, '', modalUrl);
+          else history.pushState({ modal: key }, '', modalUrl);
         }
         document.title = route.title;
       }
@@ -689,10 +693,7 @@
         lastFocused?.focus();
       }, 300);
 
-      const route = currentKey && MODAL_ROUTES[currentKey];
-      if (pushUrl && route && location.pathname === route.path) {
-        history.replaceState({}, '', BASE_PATH);
-      } else if (pushUrl && new URLSearchParams(location.search).has('modal')) {
+      if (pushUrl && new URLSearchParams(location.search).has('modal')) {
         const url = new URL(location.href);
         url.searchParams.delete('modal');
         url.searchParams.delete('package');
@@ -856,17 +857,25 @@
       try {
         const data = new FormData(form);
         const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (res.ok) {
-          const first = String(data.get('fullName') || data.get('full_name') || '').trim().split(/\s+/)[0];
-          form.reset();
-          showNotice({
-            type: 'success', title: copy.title(first), message: copy.message,
-            // inside a modal → close it too once the visitor dismisses the notice
-            onClose: () => document.getElementById('modal-close')?.click(),
-          });
-        } else {
-          showNotice({ type: 'error', title: 'Something went wrong', message: 'Your message was not sent. Please try again, or reach us on WhatsApp.', button: 'Try again' });
+        let result;
+        try {
+          result = await res.json();
+        } catch (err) {
+          console.error('Invalid form response:', err);
+          showNotice({ type: 'error', title: 'Unable to confirm submission', message: 'We could not confirm that your message was received. Please try again, or contact us on WhatsApp.', button: 'Try again' });
+          return;
         }
+        if (!res.ok || !result || result.success !== true) {
+          showNotice({ type: 'error', title: 'Something went wrong', message: 'Your message was not sent. Please try again, or reach us on WhatsApp.', button: 'Try again' });
+          return;
+        }
+        const first = String(data.get('fullName') || data.get('full_name') || '').trim().split(/\s+/)[0];
+        form.reset();
+        showNotice({
+          type: 'success', title: copy.title(first), message: copy.message,
+          // inside a modal → close it too once the visitor dismisses the notice
+          onClose: () => document.getElementById('modal-close')?.click(),
+        });
       } catch (err) {
         console.error('Submission error:', err);
         showNotice({ type: 'error', title: 'No connection', message: 'We could not reach the server. Check your internet and try again.', button: 'Try again' });
