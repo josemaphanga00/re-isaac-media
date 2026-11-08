@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/about", "destination": "/?modal=about", "permanent": true },
+    { "source": "/booking", "destination": "/?modal=booking", "permanent": true },
+    { "source": "/inquiry", "destination": "/?modal=inquiry", "permanent": true },
+    { "source": "/gallery", "destination": "/?modal=gallery", "permanent": true },
+    { "source": "/packages/starter", "destination": "/?modal=package1", "permanent": true },
+    { "source": "/packages/standard", "destination": "/?modal=package2", "permanent": true },
+    { "source": "/packages/premium", "destination": "/?modal=package3", "permanent": true }
+  ]
+}

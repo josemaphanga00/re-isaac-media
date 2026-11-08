@@ -1,3 +1,28 @@
-.DS_Store
+# Dependencies
 node_modules/
+
+# Environment variables and local secrets
 .env
+.env.*
+!.env.example
+
+# Build output
+/dist/
+/build/
+
+# Logs and debug output
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Accidental Git fetch artifact in the project root
+/FETCH_HEAD
