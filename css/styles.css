@@ -466,7 +466,7 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 1.5rem;
+  padding: 8rem 1.5rem 4rem;
 }
 
 .hero-section .container { position: relative; max-width: 900px; }
@@ -623,7 +623,7 @@ button {
 
 @media (max-width: 576px) {
   .hero-section {
-    padding: 6rem 1rem 2.5rem;
+    padding: 7rem 1rem 2.5rem;
   }
   .hero-section .container { padding-right: 0; padding-left: 0; }
   .hero-eyebrow {

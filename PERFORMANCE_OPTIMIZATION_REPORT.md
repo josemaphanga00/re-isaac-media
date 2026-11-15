@@ -42,6 +42,22 @@ This summary is based on the repository history and current code. The commits de
 
 The order of work follows what a visitor notices first: establish the hero and core styles promptly, then reduce the cost of the many photographs and postpone off-screen work. The implementation preserves the photographic portfolio and slideshow behavior while changing when and how much imagery the browser fetches. It also trades some decorative motion and certainty of custom fonts on first paint for earlier usable content.
 
+## High-priority deployment reliability finding
+
+A production smoke test on 2026-11-15 found that `/booking`, `/gallery`, `/about`, `/inquiry`, and the three package URLs returned 404, while the homepage and `/?modal=booking` worked. The live response identifies GitHub Pages as the host. The redirect rules in `vercel.json` are not applied by GitHub Pages, which explains why those paths failed.
+
+Static entry pages now exist for those seven legacy paths. Each redirects to the existing query-string modal URL, with a link fallback when JavaScript is unavailable. The Vercel redirects remain for deployments on that host. The route pages are being published from the repository's `main` branch; do not mark the issue resolved until each live path is tested.
+
+After deployment, verify each route with and without a trailing slash, check that it lands on the matching `?modal=...` URL, and confirm the intended modal opens. Also verify the production source branch in GitHub Pages settings rather than relying on the stale Vercel deployment note.
+
+## HTTPS enforcement follow-up
+
+A production check on 2026-11-15 found `http://www.isaacmedia.co.za/` responded with HTTP 200 and no `Location` header, so visitors were not redirected to HTTPS. The apex host redirected to `www` but preserved the incoming protocol. Cloudflare **Always Use HTTPS** has since been enabled: current checks show both HTTP hosts return 301 redirects to HTTPS.
+
+Initially, GitHub Pages reported **Enforce HTTPS** as unavailable while Cloudflare proxying was enabled. After `www` was changed to DNS only, public DNS began resolving through `josemaphanga00.github.io` to GitHub Pages. On 2026-11-15, direct TLS checks to all four documented GitHub Pages IPs verified successfully and presented a Let's Encrypt certificate for `www.isaacmedia.co.za`. No CAA records were found. The `CNAME` file contains `www.isaacmedia.co.za`.
+
+The certificate is provisioned for `www`, but the latest live check still found `http://www.isaacmedia.co.za/` returning 200. Because `www` is currently DNS-only, Cloudflare's **Always Use HTTPS** setting does not affect it; that setting only applies to proxied records. Keep the GitHub Pages **Enforce HTTPS** setting enabled, and restore the Cloudflare proxy (orange cloud) for `www` so Cloudflare's HTTPS redirect also applies at the edge. Verify HTTP returns a permanent redirect and both hostnames, modal routes, and assets load over HTTPS. Do not use a browser-side redirect as a substitute for TLS.
+
 ## Evidence and follow-up
 
 The Git history records commits for mobile Lighthouse improvement, hero loading, responsive image candidates, gallery loading, startup scheduling, and critical mobile rendering. It does not include benchmark output. To quantify the result, capture comparable mobile Lighthouse runs before and after deployment, and monitor real-user Core Web Vitals (especially LCP and INP) across representative devices and network conditions.

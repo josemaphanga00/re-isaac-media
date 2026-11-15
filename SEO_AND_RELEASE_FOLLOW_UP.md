@@ -1,15 +1,19 @@
 # SEO and Release Follow-Up
 
-This document tracks SEO and deployment items intentionally deferred so the site can launch today. Priorities reflect the checks performed on 2026-11-08; recheck live behavior before treating any item as resolved.
+This document tracks SEO and deployment follow-up. Production checks were refreshed on 2026-11-15; recheck live behavior after the route fix is deployed.
 
 ## Before and immediately after launch
 
-- [ ] In Vercel, verify `isaac-media-v2` is the Production Branch and promote/deploy commit `38846c4` to **Production**. GitHub currently has this commit on both `isaac-media-v2` and `prelaunch-preview`, but the Vercel deployment reported for it was **Preview**.
-- [ ] Open the production domain and verify it serves the intended release, not the older homepage.
-- [ ] Verify `https://www.isaacmedia.co.za/booking` redirects to `/?modal=booking`, and that the destination opens correctly and survives refresh. Also check `/gallery`, `/about`, `/inquiry`, and the three package paths.
-- [ ] Verify the production sitemap has the intended current `<lastmod>` value. On 2026-11-08 the public sitemap still reported `2026-06-24`, while the release checkout reports `2026-11-06`.
-- [ ] Verify social sharing metadata and image fetches on production. The older live HTML referenced `https://www.isaacmedia.co.za/assets/img/seo-preview.jpg`, which returned 404; the release checkout uses `https://www.isaacmedia.co.za/assets/im-og.jpg`.
-- [ ] Check the production `robots.txt` and sitemap URL after deployment. Ensure search crawling remains allowed and the sitemap is reachable.
+- [ ] In GitHub repository Settings > Pages, confirm the production source and publish the static route entry pages. The live response identifies GitHub Pages; it does not apply the redirects in `vercel.json`.
+- [ ] Verify the production homepage serves the intended release.
+- [ ] Verify `/booking`, `/gallery`, `/about`, `/inquiry`, and all three package paths, with and without trailing slashes. Each should land on its matching `?modal=...` URL and open the correct modal. The source fix is present, but deployment and live verification are still pending.
+- [x] In Cloudflare, enable **Always Use HTTPS** under SSL/TLS > Edge Certificates. Verified on 2026-11-15: both HTTP hostnames return 301 redirects to HTTPS.
+- [x] Configure the `www` DNS record as DNS-only CNAME to `josemaphanga00.github.io`. Verified on 2026-11-15: public DNS resolves to GitHub Pages, and all four GitHub Pages IPs present a valid Let's Encrypt certificate for `www.isaacmedia.co.za`.
+- [ ] Restore the Cloudflare proxy (orange cloud) for `www`. It is currently DNS-only, so Cloudflare **Always Use HTTPS** does not apply to it; HTTP `www` currently returns 200. Keep **Always Use HTTPS** enabled.
+- [ ] In GitHub repository Settings > Pages, confirm **Enforce HTTPS** is enabled. Then verify `http://www.isaacmedia.co.za/` returns a permanent redirect to HTTPS, and test the homepage, pretty URLs, and assets.
+- [ ] Verify the production sitemap has the intended current `<lastmod>` value. On 2026-11-15 the live sitemap reported `2026-11-06`; update only when page content meaningfully changes.
+- [ ] Verify social sharing previews on production. The current Open Graph image URL `https://www.isaacmedia.co.za/assets/im-og.jpg` returned 200 on 2026-11-15, but preview rendering has not been tested.
+- [ ] Recheck production `robots.txt` and sitemap after deployment. Both returned 200 on 2026-11-15, and `robots.txt` allows crawling.
 - [ ] Submit/refresh the sitemap in Google Search Console and inspect indexing/Crawl Stats after the release. Search Console access and indexing status were not available during this review.
 
 ## SEO improvements to do next
@@ -36,8 +40,8 @@ This document tracks SEO and deployment items intentionally deferred so the site
 
 ## Deployment notes
 
-- Production branch: `isaac-media-v2`.
-- Release commit to deploy: `38846c4` (`Redirect legacy modal routes`).
-- `prelaunch-preview` is also currently at that commit; it is a preview/staging branch, not the production branch.
-- Local end-to-end checks passed for navigation, modal routes, form validation/feedback, gallery/lightbox, responsive widths, and WhatsApp draft generation. Form provider responses and WhatsApp were mocked; no real messages were sent.
-- Last verified public production check on 2026-11-08 still showed the old sitemap and `/booking` returned 404. Treat launch as incomplete until production deployment and the post-deploy checks above are confirmed.
+- The production domain responds through GitHub Pages and the repository contains a `CNAME` file. The exact Pages source branch was not available from this workspace; confirm it in repository settings.
+- `vercel.json` remains useful for an optional Vercel deployment, but it does not configure GitHub Pages. Static route entry pages were added for the legacy modal paths.
+- Cloudflare **Always Use HTTPS** is enabled. The `www` record was switched to DNS only; this allowed GitHub Pages to provision a valid Let's Encrypt certificate, confirmed directly against all four GitHub Pages IPs on 2026-11-15. Because DNS-only traffic bypasses Cloudflare, `www` HTTP currently returns 200; restore proxying and verify GitHub's **Enforce HTTPS** is enabled. Apex DNS remains proxied through Cloudflare.
+- On 2026-11-15 the homepage and `/?modal=booking` returned 200, and the booking modal opened. The seven pretty URLs still returned 404 before the route entry pages were deployed.
+- The earlier local end-to-end checks covered navigation, modal routes, form validation/feedback, gallery/lightbox, responsive widths, and WhatsApp draft generation. Form provider responses and WhatsApp were mocked; no real messages were sent.

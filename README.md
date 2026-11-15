@@ -4,6 +4,8 @@ A modern photography portfolio redesign featuring glassmorphism, soft blur effec
 
 ## Deployment notes
 
-This is a static site. Modal and gallery deep links use query strings (for example, `?modal=booking`) so a direct visit or refresh serves the site entry point without requiring host-specific SPA rewrites. Vercel redirects legacy pretty URLs (such as `/booking` and `/gallery`) to those query-string URLs. Keep new modal links on the query-string pattern.
+This is a static site. Modal and gallery deep links use query strings (for example, `?modal=booking`) so a direct visit or refresh serves the site entry point without requiring host-specific SPA rewrites. Legacy pretty URLs have static entry pages for GitHub Pages and redirects in `vercel.json` for Vercel. Keep new modal links on the query-string pattern.
 
-Vercel serves this repository, and its Production Branch is configured as `isaac-media-v2`. Pushing to that branch deploys to production. Use a different branch for preview deployments; only push to `isaac-media-v2` when a production release is intended.
+The live custom domain currently responds through GitHub Pages (the live response includes GitHub Pages headers, and `CNAME` names the custom domain). GitHub Pages does not apply `vercel.json`, so static route entry pages are provided for legacy pretty URLs such as `/booking` and `/gallery`. Keep these pages, their destinations, and the optional Vercel redirects in sync with the modal routes in `js/scripts.js`.
+
+`vercel.json` keeps the same redirects for deployments hosted on Vercel. Before releasing, confirm the production source in the GitHub Pages settings and test each legacy route on the live domain.
