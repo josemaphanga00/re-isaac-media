@@ -56,7 +56,7 @@ A production check on 2026-11-15 found `http://www.isaacmedia.co.za/` responded 
 
 Initially, GitHub Pages reported **Enforce HTTPS** as unavailable while Cloudflare proxying was enabled. After `www` was changed to DNS only, public DNS began resolving through `josemaphanga00.github.io` to GitHub Pages. On 2026-11-15, direct TLS checks to all four documented GitHub Pages IPs verified successfully and presented a Let's Encrypt certificate for `www.isaacmedia.co.za`. No CAA records were found. The `CNAME` file contains `www.isaacmedia.co.za`.
 
-The certificate is provisioned for `www`, but the latest live check still found `http://www.isaacmedia.co.za/` returning 200. Because `www` is currently DNS-only, Cloudflare's **Always Use HTTPS** setting does not affect it; that setting only applies to proxied records. Keep the GitHub Pages **Enforce HTTPS** setting enabled, and restore the Cloudflare proxy (orange cloud) for `www` so Cloudflare's HTTPS redirect also applies at the edge. Verify HTTP returns a permanent redirect and both hostnames, modal routes, and assets load over HTTPS. Do not use a browser-side redirect as a substitute for TLS.
+Follow-up production checks confirm that both `http://www.isaacmedia.co.za/` and `http://isaacmedia.co.za/` now return permanent redirects to HTTPS, and the HTTPS homepage responds successfully. HTTPS enforcement is verified complete as of 2026-11-16. The legacy pretty routes remain a separate pending deployment issue; their source files are committed locally but are not yet on `origin/main`.
 
 ## Evidence and follow-up
 
