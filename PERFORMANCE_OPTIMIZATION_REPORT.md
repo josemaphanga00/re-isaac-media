@@ -60,4 +60,10 @@ Follow-up production checks confirm that both `http://www.isaacmedia.co.za/` and
 
 ## Evidence and follow-up
 
-The Git history records commits for mobile Lighthouse improvement, hero loading, responsive image candidates, gallery loading, startup scheduling, and critical mobile rendering. It does not include benchmark output. To quantify the result, capture comparable mobile Lighthouse runs before and after deployment, and monitor real-user Core Web Vitals (especially LCP and INP) across representative devices and network conditions.
+### Browser baseline sample
+
+On 2026-11-17, a single browser navigation sample of the production homepage was recorded with Chrome 157 at 390 × 844 and 1365 × 768 viewports. First Contentful Paint was 1.32 s on mobile and 0.96 s on desktop; summed resource transfer sizes were approximately 270 KB and 849 KB, respectively. These are one-off browser measurements, not Lighthouse scores or field Core Web Vitals, and can vary with cache and network conditions. The Google PageSpeed Insights API request was rate-limited (HTTP 429), so a full Lighthouse category score and comparable LCP/CLS/TBT baseline are still needed.
+
+The Git history records commits for mobile Lighthouse improvement, hero loading, responsive image candidates, gallery loading, startup scheduling, and critical mobile rendering. Capture repeatable mobile Lighthouse runs before and after deployment, and monitor real-user Core Web Vitals (especially LCP and INP) across representative devices and network conditions.
+
+Generic portfolio alt text has been replaced in the source with concise descriptions of the visible scenes. Deploy and verify the updated descriptions in the live gallery.

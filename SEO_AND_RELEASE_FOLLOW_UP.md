@@ -20,7 +20,8 @@ This document tracks SEO and deployment follow-up. Production checks were refres
 ### High priority
 
 - [ ] Use Google Search Console to check indexing, sitemap processing, canonical selection, mobile usability, and search queries. Record actual data before making ranking claims.
-- [ ] Improve gallery and portfolio image `alt` text where it describes meaningful content. Replace repeated generic text such as “Photography by Isaac Media” with concise, accurate descriptions; keep decorative images' alt text empty.
+- [x] Replace repeated generic gallery alt text with concise descriptions of the visible scenes; decorative images remain empty-alt where appropriate. Updated 80 attributes across 70 distinct photos in the source on 2026-11-17.
+- [ ] Deploy the alt text changes and verify the updated descriptions on the live site.
 - [ ] Review title and description wording against the services and locations that are genuinely important (for example, wedding photography, videography, Pretoria, and South Africa). Keep copy natural and non-repetitive.
 - [ ] Confirm structured data matches the visible business details: name, contact information, service area, address, pricing, and social links. Validate JSON-LD with Google's Rich Results Test or Schema Markup Validator.
 
